@@ -165,6 +165,26 @@ footer{
 }
 
 @media (max-width: 600px) {
+	.hero-section {
+        height: 50vh; /* Reduce la altura de la imagen hero */
+        background-position: center bottom; /* Opcional: enfoca la parte inferior de la imagen */
+        /* Si la imagen se ve muy estirada horizontalmente, puedes probar background-size: contain; 
+           pero 'cover' suele ser mejor para fondos decorativos */
+    }
+
+    .hero-section .hero-content h1 {
+        font-size: 2.2em; /* Reduce el tamaño del título */
+    }
+
+    .hero-section .hero-content p {
+        font-size: 1em; /* Reduce el tamaño del párrafo */
+    }
+
+    .hero-section .hero-content button {
+        padding: 12px 25px; /* Reduce el padding del botón */
+        font-size: 1em;
+    }
+	
 	body{
 		padding: 15px;
 	}
