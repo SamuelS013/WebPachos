@@ -166,8 +166,9 @@ footer{
 
 @media (max-width: 600px) {
 	.hero-section {
-        height: 50vh; /* Reduce la altura de la imagen hero */
+        height: 30vh; /* Reduce la altura de la imagen hero */
         background-position: center bottom; /* Opcional: enfoca la parte inferior de la imagen */
+        background-size: contain;
         /* Si la imagen se ve muy estirada horizontalmente, puedes probar background-size: contain; 
            pero 'cover' suele ser mejor para fondos decorativos */
     }
