@@ -40,14 +40,6 @@ tr:hover {
 	box-shadow: 2px 2px 5px rgba(0,0,0,0,1);
 }
 
-.logo{
-	position: absolute;
-	top: 20px;
-	left: 30px;
-	width: 100px;
-	height: auto;
-}
-
 .whatsapp{
 	position: fixed;
 	bottom: 20px;
@@ -82,12 +74,6 @@ footer{
 @media (max-width: 600px) {
 	body{
 		padding: 15px;
-	}
-	
-	.logo {
-		width: 60px;
-		top: 10px;
-		left: 15px;
 	}
 	
 	.esquina {
