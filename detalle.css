@@ -1,0 +1,48 @@
+body {
+	font-family: 'Segoe UI', sans-serif;
+	background-color: #fffaf3;
+	color: #4b2e2e;
+	margin: 0;
+	padding: 0 20px;
+}
+
+.top-header {
+	background-color: #ffe4b5;
+	padding: 12px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+a.menu-toggle {
+	text-decoration: none;
+	color: #4b2e2e;
+	font-size: 0.9em;
+}
+
+.producto-detalle {
+	max-width: 700px;
+	margin: 30px auto;
+	text-align: center;
+}
+
+.producto-detalle img.producto-img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+	margin-top: 20px;
+	box-shadow: 0 2px 6px rgba(0,0,0.15);
+}
+
+.producto-detalle a.whatsapp {
+	display: inline-block;
+	margin-top: 20px;
+	background-color: #25d366;
+	color: white;
+	padding: 10px 16px;
+	border-radius: 6px;
+	text-decoration: none;
+	font-weight: bold;
+}
