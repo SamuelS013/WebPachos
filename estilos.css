@@ -1,9 +1,80 @@
+.hero-section {
+    background-image: url('palmeritas2.jpeg');
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    height: 80vh; /* Ocupa el 70% de la altura del viewport (ajusta según necesites) */
+    display: flex; /* Usamos flexbox para centrar el contenido del header */
+    align-items: center;  /*Centra verticalmente el contenido del header */
+    justify-content: center; /* Centra horizontalmente el contenido del header */
+    position: relative; /* Importante para que el z-index funcione en relación con el main */
+    z-index: 1; /* El fondo de la imagen, estará debajo del contenido principal */
+}
+
+/* Estilos para el header dentro del hero-section */
+.hero-section header {
+    text-align: center;
+    padding: 30px; /* Padding interno para el contenido del header */
+    width: 80%; /* Ancho del contenido del header */
+    max-width: 800px;
+}
+
+.hero-section header h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+}
+
+.hero-section header p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.hero-section header button {
+    background-color: #007bff; /* Color de botón de ejemplo */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-section header button:hover {
+    background-color: #0056b3;
+}
+
+.top-header {
+	background-color: #ffcf98;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 30px;
+	font-family: 'Segoe UI', sans-serif;
+	position: sticky;
+	top: 0;
+	z-index: 999;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-left{
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #281300;
+}
+
+.menu-toggle {
+	font-size: 1.6em;
+	cursor: pointer;
+	user-select: none;
+}
+
+
 body {
 	font-family: 'Segoe UI', sans-serif;
 	background-color: #fff8f0;
 	color: #4b2e2e;
 	text-align: center;
-	padding: 30px;
 }
 h1 {
 	color: #d2691e;
@@ -21,7 +92,7 @@ table a {
 }
 
 th, td {
-	padding: 10px 20px;
+	padding: 15px 20px;
 	border-bottom: 1px solid #d8c2b2;
 }
 th {
@@ -33,30 +104,6 @@ tr:hover {
 	cursor: default;
 }
 
-.top-header {
-	background-color: #ffe4b5;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 12px 20px;
-	font-family: 'Segoe UI', sans-serif;
-	position: sticky;
-	top: 0;
-	z-index: 999;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.header-left{
-	font-weight: bold;
-	font-size: 1.2em;
-	color: #4b2e2e;
-}
-
-.menu-toggle {
-	font-size: 1.6em;
-	cursor: pointer;
-	user-select: none;
-}
 
 .dropdown-menu {
 	display: none;
@@ -65,7 +112,7 @@ tr:hover {
 	right: 20px;
 	background-color: #fff8ee;
 	border: 1px solid #d4b890;
-	border-radius: 8px;
+	border-radius: 4px;
 	box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
 	flex-direction: column;
 }
