@@ -277,75 +277,64 @@ footer {
 }
 
 /* ======================
-   RESPONSIVE FIXES
+   CENTRADO PERFECTO
    ====================== */
+.contenido {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Ajuste para la tabla */
+table {
+    margin: 0 auto;
+    width: auto;
+    max-width: 100%;
+}
+
+/* Contenedor de secciones */
+.secciones-nuevas {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Ajuste fino para móviles */
 @media (max-width: 768px) {
-    /* 1. Corrige el desbordamiento */
-    body {
-        overflow-x: hidden;
-        padding: 0 10px;
+    .contenido {
+        padding: 15px;
     }
     
-    /* 2. Ajusta el header */
-    .top-header {
-        padding: 15px 10px;
-        border-radius: 0;
-    }
-    
-    /* 3. Tabla responsive */
     table {
         width: 100%;
-        max-width: 100%;
-        font-size: 0.9rem;
-        display: block;
-        overflow-x: auto;
+        display: table; /* Fuerza el modo tabla */
     }
     
-    th, td {
-        padding: 10px 8px;
-        min-width: 100px;
-    }
-    
-    /* 4. Secciones nuevas */
     .secciones-nuevas {
-        padding: 0 5px;
+        padding: 0 15px;
     }
     
-    .boton-seccion {
-        padding: 12px 5px;
-        font-size: 0.9rem;
+    /* Corrección específica para el catálogo */
+    #catalogo.activo {
+        padding: 15px;
     }
     
-    /* 5. Catálogo */
-    .categorias {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-bottom: 10px;
-        justify-content: flex-start;
-    }
-    
-    .boton-categoria {
-        flex-shrink: 0;
-        white-space: nowrap;
-    }
-    
-    /* 6. Productos */
     .productos-categoria {
         grid-template-columns: 1fr;
+        width: 100%;
     }
 }
 
+/* Ajuste extra para pantallas pequeñas */
 @media (max-width: 480px) {
-    /* Ajustes extra para móviles muy pequeños */
-    .header-left {
-        font-size: 1.2rem;
+    .contenido {
+        padding: 15px 10px;
     }
     
-    .menu-toggle {
-        font-size: 1.3rem;
-    }
-    
-    h1 {
-        font-size: 1.3rem;
+    th, td {
+        padding: 12px 8px !important;
     }
 }
