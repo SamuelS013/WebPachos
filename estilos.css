@@ -39,6 +39,8 @@ body {
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
+    /* Añadimos un margen superior para que no se pegue a la tabla */
+    margin-top: 20px; 
 }
 
 h1 {
@@ -47,11 +49,12 @@ h1 {
 }
 
 table {
-    margin: 0 auto;
+    margin: 0 auto; /* Centra la tabla horizontalmente */
     border-collapse: collapse;
     font-size: 1.2em;
     width: 100%;
     max-width: 700px; /* Ancho un poco más grande para PC */
+    display: block; /* Asegura que la tabla se comporte como un bloque para un mejor centrado */
 }
 
 table a {
@@ -62,7 +65,7 @@ table a {
 th, td {
     padding: 15px 20px;
     border-bottom: 1px solid #d8c2b2;
-    text-align: center; /* ¡Centra el contenido de las celdas! */
+    text-align: center; /* Centra el contenido de las celdas */
 }
 
 th {
@@ -274,21 +277,22 @@ footer {
 
     .contenido {
         padding: 15px;
+        margin-top: 15px; /* Ajuste para el margen superior del contenido si la tabla está fuera */
     }
 
     table {
         font-size: 1em;
-        display: block;
-        overflow-x: auto;
+        display: block; /* Muy importante para que margin:auto funcione en tablas */
+        overflow-x: auto; /* Permite el scroll horizontal si es necesario */
         white-space: nowrap;
-        width: 95%; /* ¡Ajuste para móviles: hace la tabla más ancha y centrada! */
-        max-width: 100%;
-        margin: 0 auto;
+        width: 95%; /* Hace la tabla más ancha en móvil, dejando un pequeño margen */
+        max-width: 100%; /* Asegura que no desborde el viewport */
+        margin: 20px auto; /* ¡Centra la tabla y le da un margen superior/inferior! */
     }
 
     th, td {
         padding: 10px 15px;
-        text-align: center; /* ¡Centra el contenido de las celdas en móvil también! */
+        text-align: center; /* Centra el contenido de las celdas en móvil */
     }
 
     footer {
