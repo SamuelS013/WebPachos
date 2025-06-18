@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Pachos - Menú</title>
     <meta name="description" content="Conoce nuestros productos recién horneados en Pampán. Menú digital de panes, dulces y café artesanal.">
@@ -12,83 +12,153 @@
 </head>
 
 <body>
-		<header class="top-header">
-			<div class="header-left">Panificadora Pacho's</div>
-			
-			<div class="menu-toggle" onclick="toggleMenu()">||</div>
-			
-			<nav class="dropdown-menu" id="menu">
-				<a href="#productos">Productos</a>
-				<a href="#emprende">Emprende con nosotros</a>
-				<a href="#contactos">Contactos</a>
-				<a href="#ubicacion">Ubicación</a>
-				<a href="https://wa.me/584261351097" target="_blank">WhatsApp</a>
-			</nav>
-		</header>
+    <header class="top-header">
+        <div class="header-left">Panificadora Pacho's</div>
+        <div class="menu-toggle" onclick="toggleMenu()">||</div>
+        <nav class="dropdown-menu" id="menu">
+            <a href="#catalogo">Catálogo completo</a>
+            <a href="#emprende">Emprende con nosotros</a>
+            <a href="#puntosdeventa">Puntos de venta</a>
+            <a href="#contactos">Contactos</a>
+        </nav>
+    </header>
   
-    <h1>Carta de Panificadora Pacho's</h1>
+    <div class="contenido">
+        <h1>Carta de Panificadora Pacho's</h1>
+        
+        <!-- Tabla IDÉNTICA a la original -->
+        <table>
+            <tr><th>Producto</th><th>Precio</th></tr>
+            <tr><td><a href="pan-salado.html">Pan Salado</a></td><td>$1.20</td></tr>
+            <tr><td><a href="pan-dulce.html">Pan Dulce</a></td><td>$1.20</td></tr>
+            <tr><td><a href="pan-campesino.html">Pan Campesino</a></td><td>$1.20</td></tr>
+            <tr><td><a href="palmeritas.html">Palmeritas</a></td><td>$1.20</td></tr>
+            <tr><td><a href="paledonias.html">Paledonia</a></td><td>$1.00</td></tr>
+            <tr><td><a href="torta-marmoleada.html">Torta Marmoleada</a></td><td>$1.00</td></tr>
+        </table>
+        
+        <div class="secciones-nuevas">
+			<!-- Botón que activará el catálogo -->
+			<button class="boton-seccion" data-target="catalogo">Catálogo completo de productos</button>
+			
+			<!-- Contenedor del catálogo (oculto inicialmente) -->
+			<div id="catalogo" class="contenido-seccion">
+				<h3>Nuestro Catálogo Completo</h3>
+				
+				<!-- Selector de categorías -->
+				<div class="categorias">
+					<button class="boton-categoria activo" data-categoria="panes">🍞 Panes</button>
+					<button class="boton-categoria" data-categoria="reposteria">🎂 Repostería</button>
+					<button class="boton-categoria" data-categoria="integral">🌾 Integral</button>
+					<button class="boton-categoria" data-categoria="bebidas">☕ Bebidas</button>
+				</div>
+				
+				<!-- Productos: Panes (visible por defecto) -->
+				<div class="productos-categoria" id="panes">
+					<div class="producto">
+						<h4>Pan Salado</h4>
+						<p class="precio">$1.20</p>
+						<p class="descripcion">Clásico pan salado</p>
+					</div>
+					<div class="producto">
+						<h4>Pan Campesino</h4>
+						<p class="precio">$1.20</p>
+						<p class="descripcion">Pan campesino</p>
+					</div>
+					<div class="producto">
+						<h4>Pan Dulce</h4>
+						<p class="precio">$1.20</p>
+						<p class="descripcion">Clásico pan dulce azucarado</p>
+					</div>
+					<div class="producto">
+						<h4>Pan Frances</h4>
+						<p class="precio">$1.20</p>
+						<p class="descripcion">Panes Franceses clásicos, crujientes y deliciosos</p>
+					</div>
+					<div class="producto">
+						<h4>Manitas de arequipe</h4>
+						<p class="precio">$1.20</p>
+						<p class="descripcion">Manitas rellenas de arequipe</p>
+					</div>
+				</div>
+				
+				<!-- Productos: Repostería (oculto inicialmente) -->
+				<div class="productos-categoria" id="reposteria" style="display:none">
+					<div class="producto">
+						<h4>Palmeritas</h4>
+						<p class="precio">$1.20</p>
+						<p class="descripcion">Palmerita crujiene hecha con masa de hojaldre.
+						¡Producto estrella de Pacho's!</p>
+					</div>
+					<div class="producto">
+						<h4>Torta Marmoleada (Trozo)</h4>
+						<p class="precio">$1.00</p>
+						<p class="descripcion">Torta suave y esponjosa con una  mezcla de vainilla y chocolate</p>
+					</div>
+					<div class="producto">
+						<h4>Paledonia (Trozo)</h4>
+						<p class="precio">$1.00</p>
+						<p class="descripcion">Paledonia hecha con la mejor panela del estado</p>
+					</div>
+					<!-- Añade más productos aquí -->
+				</div>
+				
+				<!-- Productos: Integral (oculto inicialmente) -->
+				<div class="productos-categoria" id="integral" style="display:none">
+					<!-- Añade productos aquí -->
+					<div class="producto">
+						<h4>Acemas Integrales</h4>
+						<p class="precio">$1.20</p>
+						<p class="descripcion">Acemas integrales ricas y aprovadas para una alimentación sana</p>
+					</div>
+				</div>
+				
+				<!-- Productos: Bebidas (oculto inicialmente) -->
+				<div class="productos-categoria" id="bebidas" style="display:none">
+					<div class="producto">
+						<h4>SunCola 2L</h4>
+						<p class="precio">$1.20</p>
+						<p class="descripcion">Refresco SunCola con sabor de tu preferencia</p>
+					</div>
+					<div class="producto">
+						<h4>SunCola 400ml</h4>
+						<p class="precio">$0.50</p>
+						<p class="descripcion">Refresco SunCola de 400ml con sabor de tu preferencia</p>
+					</div>
+				</div>
+				
+				<!-- Botón flotante para pedidos (dentro del catálogo) -->
+				<a href="https://wa.me/584261351097" class="boton-pedido" target="_blank">
+					🛒 Pedir por WhatsApp
+				</a>
+			</div>
+			
+			<!-- Otras secciones (Puntos de venta, Emprende, etc.) -->
+			<button class="boton-seccion" data-target="puntos-venta">Puntos de Venta</button>
+			<div id="puntos-venta" class="contenido-seccion">
+				Contenido de puntos de venta...
+			</div>
+			
+			<button class="boton-seccion" data-target="emprende">Emprende con nosotros</button>
+			<div id="emprende" class="contenido-seccion">
+				Contenido para emprender...
+			</div>
+		</div>
+    </div>
     
-    <table>
-        <tr><th>Producto</th><th>Precio</th></tr>
-        <tr>
-			<td><a href="pan-salado.html">Pan Salado</a></td>
-			<td>$1.20</td>
-		</tr>
-        <tr>
-			<td><a href="pan-dulce.html">Pan Dulce</a></td>
-			<td>$1.20</td>
-		</tr>
-		
-		<tr>
-			<td><a href="pan-campesino.html">Pan Campesino</a></td>
-			<td>$1.20</td>
-        </tr>
-		
-        <tr>
-			<td><a href="palmeritas.html">Palmeritas</a></td>
-			<td>$1.20</td>
-        </tr>
-        
-        <tr>
-			<td><a href="paledonias.html">Paledonia</a></td>
-			<td>$1.00</td>
-		</tr>
-        
-        <tr>
-			<td><a href="torta-marmoleada.html">Torta Marmoleada</a></td>
-			<td>$1.00</td>
-        </tr>
-        
-        
-        
-    </table>
-    
-    <a href="https://wa.me/584261351097" class="whatsapp" target="_blank" title="Contáctanos por WhatsApp">
-		Escríbenos por WhatsApp
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/584261351097" class="whatsapp-flotante" target="_blank" title="WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
     
     <footer>
-		<h3>Ubicación:</h3>
-		<p>Pampán, Trujillo - Venezuela</p>
-		<h3>Horario:</h3> 
-		<p>Lunes a Sabado: 7:00 - 19:00</p>
-		<h3>¡Gracias por visitarnos!</h3>
+        <h3>Ubicación:</h3>
+        <p>Pampán, Trujillo - Venezuela</p>
+        <h3>Horario:</h3> 
+        <p>Lunes a Sabado: 7:00 - 19:00</p>
+        <h3>¡Gracias por visitarnos!</h3>
     </footer>
     
-    <script>
-	function toggleMenu(){
-		const menu = document.getElementById('menu');
-		menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-	}
-	
-	window.addEventListener('click', function(e) {
-		const menu = document.getElementById('menu');
-		const toggle = document.querySelector('.menu-toggle');
-		if (menu.style.display === 'block' && !menu.contains(e.target) && !toggle.contains(e.target)) {
-			menu.style.display = 'none';
-		}
-	});
-</script>
-    
+    <script src="script.js" defer></script>
 </body>
 </html>
