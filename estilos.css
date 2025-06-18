@@ -54,11 +54,12 @@ h1 {
 
 /* Estilos para las tablas */
 table {
-    margin: 0 auto; /* Centra la tabla */
+    margin: 0 auto; /* Centra la tabla horizontalmente */
     border-collapse: collapse;
     font-size: 1.2em;
     width: 100%;
-    max-width: 500px;
+    /* AUMENTAMOS LIGERAMENTE EL ANCHO MÁXIMO DE LA TABLA */
+    max-width: 600px; /* Incrementado de 500px a 600px */
 }
 
 /* Estilos para los enlaces dentro de las tablas */
@@ -71,7 +72,7 @@ table a {
 th, td {
     padding: 15px 20px;
     border-bottom: 1px solid #d8c2b2;
-    text-align: left; /* Alineación del texto a la izquierda */
+    text-align: left; /* Alineación del texto a la izquierda, como solicitaste */
 }
 
 /* Estilos específicos para los encabezados de la tabla */
@@ -105,9 +106,8 @@ footer {
     border: 1px solid #d4b890;
     border-radius: 4px;
     box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-    /* Asegura que el menú esté centrado horizontalmente en móvil si es necesario */
-    left: auto; /* Deshace cualquier centrado anterior */
-    transform: none; /* Deshace cualquier transformación de centrado */
+    left: auto;
+    transform: none;
 }
 
 /* Estilos para los enlaces dentro del menú desplegable */
@@ -241,7 +241,6 @@ footer {
 /* Contenedor para los productos dentro de una categoría */
 .productos-categoria {
     display: grid;
-    /* En pantallas grandes, columnas de 200px. En móviles, se ajustará abajo. */
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
     margin-top: 15px;
@@ -325,6 +324,7 @@ footer {
         display: block; /* Permite que la tabla se comporte como un bloque */
         overflow-x: auto; /* Añade scroll horizontal si la tabla es demasiado ancha */
         white-space: nowrap; /* Evita que el contenido de la tabla se rompa */
+        max-width: 100%; /* Asegura que la tabla no exceda el ancho de la pantalla móvil */
     }
 
     /* Ajustes para las celdas de encabezado y datos de la tabla */
