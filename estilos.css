@@ -276,17 +276,76 @@ footer {
     font-weight: bold;
 }
 
-/* Responsive (igual al original + ajustes para las nuevas secciones) */
-@media (max-width: 600px) {
+/* ======================
+   RESPONSIVE FIXES
+   ====================== */
+@media (max-width: 768px) {
+    /* 1. Corrige el desbordamiento */
+    body {
+        overflow-x: hidden;
+        padding: 0 10px;
+    }
+    
+    /* 2. Ajusta el header */
+    .top-header {
+        padding: 15px 10px;
+        border-radius: 0;
+    }
+    
+    /* 3. Tabla responsive */
+    table {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.9rem;
+        display: block;
+        overflow-x: auto;
+    }
+    
+    th, td {
+        padding: 10px 8px;
+        min-width: 100px;
+    }
+    
+    /* 4. Secciones nuevas */
     .secciones-nuevas {
-        padding: 0 15px; /* Padding lateral para no pegarse a los bordes */
+        padding: 0 5px;
     }
     
     .boton-seccion {
-        flex: 1 1 auto;
+        padding: 12px 5px;
+        font-size: 0.9rem;
     }
     
-    .dropdown-menu {
-        top: 68px;
+    /* 5. Catálogo */
+    .categorias {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+    }
+    
+    .boton-categoria {
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+    
+    /* 6. Productos */
+    .productos-categoria {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes extra para móviles muy pequeños */
+    .header-left {
+        font-size: 1.2rem;
+    }
+    
+    .menu-toggle {
+        font-size: 1.3rem;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
     }
 }
