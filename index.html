@@ -23,20 +23,22 @@
         </nav>
     </header>
  
-    <!-- La tabla ha sido movida AQUÍ, fuera del div.contenido -->
-    <table>
-        <tr><th>Producto</th><th>Precio</th></tr>
-        <tr><td><a href="pan-salado.html">Pan Salado</a></td><td>$1.20</td></tr>
-        <tr><td><a href="pan-dulce.html">Pan Dulce</a></td><td>$1.20</td></tr>
-        <tr><td><a href="pan-campesino.html">Pan Campesino</a></td><td>$1.20</td></tr>
-        <tr><td><a href="palmeritas.html">Palmeritas</a></td><td>$1.20</td></tr>
-        <tr><td><a href="paledonias.html">Paledonia</a></td><td>$1.00</td></tr>
-        <tr><td><a href="torta-marmoleada.html">Torta Marmoleada</a></td><td>$1.00</td></tr>
-    </table>
+    <!-- NUEVO CONTENEDOR PARA LA TABLA Y SU TÍTULO -->
+    <div class="tabla-seccion">
+        <h1>Carta de Productos Disponibles</h1>
+        <table>
+            <tr><th>Producto</th><th>Precio</th></tr>
+            <tr><td><a href="pan-salado.html">Pan Salado</a></td><td>$1.20</td></tr>
+            <tr><td><a href="pan-dulce.html">Pan Dulce</a></td><td>$1.20</td></tr>
+            <tr><td><a href="pan-campesino.html">Pan Campesino</a></td><td>$1.20</td></tr>
+            <tr><td><a href="palmeritas.html">Palmeritas</a></td><td>$1.20</td></tr>
+            <tr><td><a href="paledonias.html">Paledonia</a></td><td>$1.00</td></tr>
+            <tr><td><a href="torta-marmoleada.html">Torta Marmoleada</a></td><td>$1.00</td></tr>
+        </table>
+    </div>
 
+    <!-- El resto del contenido de la página -->
     <div class="contenido">
-        <h1>Carta de Productos Disponibles</h1> <!-- Este título podría ir con la tabla o aquí, lo mantengo aquí por ahora -->
-        
         <div class="secciones-nuevas">
             <button class="boton-seccion" data-target="catalogo">Catálogo completo de productos</button>
             

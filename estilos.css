@@ -33,28 +33,33 @@ body {
     user-select: none;
 }
 
-.contenido {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
+/* NUEVOS ESTILOS PARA EL CONTENEDOR DE LA TABLA */
+.tabla-seccion {
     width: 100%;
-    box-sizing: border-box;
-    /* Añadimos un margen superior para que no se pegue a la tabla */
-    margin-top: 20px; 
+    max-width: 800px; /* Ancho máximo para la sección de tabla en PC */
+    margin: 20px auto; /* Centra la sección de tabla y le da un margen */
+    padding: 0 20px; /* Añade un padding para evitar que la tabla se pegue a los bordes */
+    box-sizing: border-box; /* Incluye padding en el width */
+    overflow-x: auto; /* Permite el scroll horizontal para la tabla */
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
+    text-align: center; /* Centra el título H1 dentro de esta sección */
 }
 
-h1 {
+/* Estilos para el título H1 dentro de la sección de tabla */
+.tabla-seccion h1 {
     color: #d2691e;
     margin-bottom: 20px;
 }
 
+/* Estilos para las tablas */
 table {
-    margin: 0 auto; /* Centra la tabla horizontalmente */
+    width: 100%; /* La tabla ocupa el 100% de su contenedor (.tabla-seccion) */
     border-collapse: collapse;
     font-size: 1.2em;
-    width: 100%;
-    max-width: 700px; /* Ancho un poco más grande para PC */
-    display: block; /* Asegura que la tabla se comporte como un bloque para un mejor centrado */
+    /* NO NECESITAMOS max-width aquí, ya lo controla el .tabla-seccion */
+    /* NO NECESITAMOS margin: auto aquí, ya lo controla el .tabla-seccion */
+    display: table; /* Volvemos al display table por defecto, el overflow lo maneja el padre */
+    white-space: nowrap; /* Evita que el contenido de la tabla se rompa si es muy largo */
 }
 
 table a {
@@ -74,6 +79,15 @@ th {
 
 tr:hover {
     background-color: #faeee0;
+}
+
+/* Contenedor principal del resto del contenido */
+.contenido {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto; /* Centra el contenedor principal y le da margen superior */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 footer {
@@ -275,24 +289,31 @@ footer {
         font-size: 1.4em;
     }
 
-    .contenido {
-        padding: 15px;
-        margin-top: 15px; /* Ajuste para el margen superior del contenido si la tabla está fuera */
+    /* Ajustes para la nueva sección de tabla en móvil */
+    .tabla-seccion {
+        margin: 15px auto; /* Centra la sección de tabla con margen en móvil */
+        padding: 0 10px; /* Reduce el padding en móvil */
+    }
+
+    .tabla-seccion h1 {
+        font-size: 1.5em; /* Ajusta el tamaño del título en móvil */
     }
 
     table {
         font-size: 1em;
-        display: block; /* Muy importante para que margin:auto funcione en tablas */
-        overflow-x: auto; /* Permite el scroll horizontal si es necesario */
-        white-space: nowrap;
-        width: 95%; /* Hace la tabla más ancha en móvil, dejando un pequeño margen */
-        max-width: 100%; /* Asegura que no desborde el viewport */
-        margin: 20px auto; /* ¡Centra la tabla y le da un margen superior/inferior! */
+        /* La tabla ya usa width: 100% de su contenedor (.tabla-seccion)
+           y el .tabla-seccion tiene overflow-x: auto y está centrado,
+           así que debería funcionar bien */
     }
 
     th, td {
         padding: 10px 15px;
         text-align: center; /* Centra el contenido de las celdas en móvil */
+    }
+
+    .contenido {
+        padding: 15px;
+        margin-top: 15px; /* Ajuste el margen superior del contenido */
     }
 
     footer {
