@@ -1,4 +1,3 @@
-/* ESTILOS ORIGINALES (idénticos a tu página) */
 body {
     font-family: 'Segoe UI', sans-serif;
     background-color: #fff8f0;
@@ -6,6 +5,8 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 .top-header {
@@ -14,7 +15,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
-    font-family: 'Segoe UI', sans-serif;
     position: sticky;
     top: 0;
     z-index: 999;
@@ -37,6 +37,8 @@ body {
     padding: 20px;
     max-width: 800px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -60,11 +62,12 @@ table a {
 th, td {
     padding: 15px 20px;
     border-bottom: 1px solid #d8c2b2;
+    text-align: left;
 }
 
 th {
     background-color: #f5deb3;
-}        
+}
 
 tr:hover {
     background-color: #faeee0;
@@ -107,38 +110,34 @@ footer {
     background-color: #f5e5cc;
 }
 
-/* NUEVOS ESTILOS (solo para las secciones añadidas) */
 .secciones-nuevas {
     display: flex;
-    flex-direction: column; /* Apila los botones verticalmente */
-    gap: 12px; /* Espacio entre botones */
+    flex-direction: column;
+    gap: 12px;
     margin: 30px auto 0;
     width: 100%;
-    max-width: 500px; /* Mismo ancho máximo que la tabla */
+    max-width: 500px;
 }
 
 .boton-seccion {
     background-color: #f5deb3;
     color: #4b2e2e;
-    padding: 14px 20px; /* Más altura para mejor tacto */
+    padding: 14px 20px;
     border-radius: 6px;
-    text-decoration: none;
     font-weight: bold;
     border: 1px solid #d4b890;
     transition: all 0.2s;
     text-align: center;
-    width: 100%; /* Ocupa todo el ancho disponible */
-    box-sizing: border-box; /* Evita desbordamiento */
-    font-size: 1em; /* Tamaño consistente con la tabla */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .boton-seccion:hover {
     background-color: #e8d5b5;
     transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sutil sombra al hover */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Botón flotante de WhatsApp */
 .whatsapp-flotante {
     position: fixed;
     bottom: 20px;
@@ -164,45 +163,28 @@ footer {
     height: 35px;
 }
 
-#catalogo.activo {
-    max-height: none !important; /* Elimina el límite de altura */
-    overflow-y: auto; /* Permite scroll si el contenido es muy largo */
-    padding: 20px;
-    transition: none; /* Opcional: quita la animación de altura */
-}
-
-
 .contenido-seccion {
     background-color: #faf4e8;
     border: 1px solid #e0cba7;
     border-radius: 0 0 8px 8px;
-    padding: 0;
-    display: none;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    margin-top: -12px; /* Para pegarse al botón */
+    padding: 15px;
+    margin-top: -12px;
     margin-bottom: 15px;
+    display: none;
 }
 
 .contenido-seccion.activo {
-    max-height: 500px; /* Ajusta según necesidad */
-    padding: 15px;
-    display: block; 
-    border-top: none;
+    display: block;
 }
 
-/* Mejora visual para botones activos */
 .boton-seccion.activo {
     background-color: #e8d5b5;
     border-radius: 8px 8px 0 0;
 }
 
-/* Estilos para el selector de categorías */
 .categorias {
     display: flex;
     gap: 10px;
-    flex-wrap: wrap;
     justify-content: center;
     margin: 20px 0;
 }
@@ -214,7 +196,6 @@ footer {
     padding: 8px 15px;
     cursor: pointer;
     transition: all 0.3s;
-    font-size: 0.9rem;
 }
 
 .boton-categoria.activo {
@@ -223,20 +204,11 @@ footer {
     border-color: #a0522d;
 }
 
-/* Contenedor de productos */
 .productos-categoria {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
     margin-top: 15px;
-    max-height: 100%;
-    overflow: visible; /* Permite que el contenido fluya */
-}
-
-.productos-categoria[style*="display:grid"] {
-    display: grid !important;
-    gap: 15px;
-    padding-bottom: 20px; /* Espacio extra al final */
 }
 
 .producto {
@@ -263,7 +235,6 @@ footer {
     font-size: 0.8rem;
 }
 
-/* Botón de pedido */
 .boton-pedido {
     display: block;
     width: fit-content;
@@ -276,145 +247,55 @@ footer {
     font-weight: bold;
 }
 
-/* ======================
-   AJUSTES FINALES DE CENTRADO
-   ====================== */
-.contenido {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* ======================
-   AJUSTES DEFINITIVOS PARA LA TABLA
-   ====================== */
-table {
-    width: 100% !important;
-    max-width: 600px !important; /* Ancho óptimo para legibilidad */
-    margin: 0 auto !important;
-    table-layout: auto !important; /* Ajuste automático del ancho */
-}
-
-th, td {
-    padding: 12px 15px !important; /* Espaciado cómodo */
-    min-width: 120px !important; /* Ancho mínimo para celdas */
-    text-align: center !important;
-}
-
-/* Ajustes para móviles */
 @media (max-width: 768px) {
-    table {
-        max-width: 100% !important;
-        display: table !important;
-        border-collapse: collapse;
+    .top-header {
+        padding: 15px 20px;
     }
     
-    th, td {
-        padding: 10px 8px !important;
-        min-width: 90px !important; /* Reducimos un poco para móviles */
-        font-size: 0.9rem !important;
-    }
-}
-
-/* Ajuste preciso para secciones */
-.secciones-nuevas {
-    width: 100%;
-    max-width: 800px;
-    margin: 30px auto 0;
-    padding: 0 15px;
-}
-
-/* ======================
-   RESPONSIVE CRÍTICO (MOBILE FIRST)
-   ====================== */
-@media (max-width: 768px) {
-    body {
-        padding: 0 10px !important;
-        overflow-x: hidden !important;
-    }
-
-    .contenido {
-        padding: 15px 10px !important;
-    }
-
-    /* Header ajustado */
-    .top-header {
-        padding: 12px 10px !important;
-    }
-
-    /* Tabla optimizada para touch */
     table {
-        font-size: 14px;
-        display: block !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    th, td {
-        padding: 12px 8px !important;
-        min-width: 0 !important;
-    }
-
-    /* Catálogo perfectamente ajustado */
-    .productos-categoria {
-        grid-template-columns: 1fr !important;
-        gap: 12px;
-        width: 100% !important;
-    }
-
-    /* Botones de categoría scrollables */
-    .categorias {
+        font-size: 0.9em;
+        display: block;
         overflow-x: auto;
-        padding-bottom: 10px;
-        margin: 0 -10px 15px;
-        scrollbar-width: thin;
-    }
-}
-
-/* Bonus: Scrollbar visible en móviles */
-.categorias::-webkit-scrollbar {
-    height: 3px;
-}
-
-.categorias::-webkit-scrollbar-thumb {
-    background: #d2691e;
-}
-
-/* ======================
-   CORRECCIÓN DE SCROLL HORIZONTAL (FIX DEFINITIVO)
-   ====================== */
-html, body {
-    max-width: 100vw !important;
-    overflow-x: hidden !important;
-}
-
-.contenido {
-    width: 100% !important;
-    max-width: 800px !important;
-    margin: 0 auto !important;
-    padding: 20px 15px !important;
-}
-
-/* Ajuste para móviles */
-@media (max-width: 768px) {
-    body {
-        padding: 0 !important;
     }
     
-    .top-header {
-        padding: 12px 15px !important;
+    th, td {
+        padding: 10px 12px;
+        min-width: 0;
     }
     
     .secciones-nuevas {
-        padding: 0 10px !important;
-        max-width: calc(100% - 20px) !important;
+        padding: 0 10px;
     }
     
-    /* Fuerza a que todos los elementos respeten el ancho */
-    table, .productos-categoria, .boton-seccion {
-        max-width: 100% !important;
-        width: 100% !important;
+    .categorias {
+        overflow-x: auto;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+    }
+    
+    .boton-categoria {
+        flex-shrink: 0;
+    }
+    
+    .productos-categoria {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-left {
+        font-size: 1.2rem;
+    }
+    
+    .menu-toggle {
+        font-size: 1.3rem;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+    }
+    
+    .contenido {
+        padding: 15px 10px;
     }
 }
