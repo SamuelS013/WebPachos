@@ -22,11 +22,10 @@
             <a href="#contactos">Contactos</a>
         </nav>
     </header>
-  
+ 
     <div class="contenido">
         <h1>Carta de Productos Disponibles</h1>
         
-        <!-- Tabla IDÉNTICA a la original -->
         <table>
             <tr><th>Producto</th><th>Precio</th></tr>
             <tr><td><a href="pan-salado.html">Pan Salado</a></td><td>$1.20</td></tr>
@@ -38,115 +37,103 @@
         </table>
         
         <div class="secciones-nuevas">
-			<!-- Botón que activará el catálogo -->
-			<button class="boton-seccion" data-target="catalogo">Catálogo completo de productos</button>
-			
-			<!-- Contenedor del catálogo (oculto inicialmente) -->
-			<div id="catalogo" class="contenido-seccion">
-				<h3>Nuestro Catálogo Completo</h3>
-				
-				<!-- Selector de categorías -->
-				<div class="categorias">
-					<button class="boton-categoria activo" data-categoria="panes">🍞 Panes</button>
-					<button class="boton-categoria" data-categoria="reposteria">🎂 Repostería</button>
-					<button class="boton-categoria" data-categoria="integral">🌾 Integral</button>
-					<button class="boton-categoria" data-categoria="bebidas">☕ Bebidas</button>
-				</div>
-				
-				<!-- Productos: Panes (visible por defecto) -->
-				<div class="productos-categoria" id="panes">
-					<div class="producto">
-						<h4>Pan Salado</h4>
-						<p class="precio">$1.20</p>
-						<p class="descripcion">Clásico pan salado</p>
-					</div>
-					<div class="producto">
-						<h4>Pan Campesino</h4>
-						<p class="precio">$1.20</p>
-						<p class="descripcion">Pan campesino</p>
-					</div>
-					<div class="producto">
-						<h4>Pan Dulce</h4>
-						<p class="precio">$1.20</p>
-						<p class="descripcion">Clásico pan dulce azucarado</p>
-					</div>
-					<div class="producto">
-						<h4>Pan Frances</h4>
-						<p class="precio">$1.20</p>
-						<p class="descripcion">Panes Franceses clásicos, crujientes y deliciosos</p>
-					</div>
-					<div class="producto">
-						<h4>Manitas de arequipe</h4>
-						<p class="precio">$1.20</p>
-						<p class="descripcion">Manitas rellenas de arequipe</p>
-					</div>
-				</div>
-				
-				<!-- Productos: Repostería (oculto inicialmente) -->
-				<div class="productos-categoria" id="reposteria" style="display:none">
-					<div class="producto">
-						<h4>Palmeritas</h4>
-						<p class="precio">$1.20</p>
-						<p class="descripcion">Palmerita crujiene hecha con masa de hojaldre.
-						¡Producto estrella de Pacho's!</p>
-					</div>
-					<div class="producto">
-						<h4>Torta Marmoleada (Trozo)</h4>
-						<p class="precio">$1.00</p>
-						<p class="descripcion">Torta suave y esponjosa con una  mezcla de vainilla y chocolate</p>
-					</div>
-					<div class="producto">
-						<h4>Paledonia (Trozo)</h4>
-						<p class="precio">$1.00</p>
-						<p class="descripcion">Paledonia hecha con la mejor panela del estado</p>
-					</div>
-					<!-- Añade más productos aquí -->
-				</div>
-				
-				<!-- Productos: Integral (oculto inicialmente) -->
-				<div class="productos-categoria" id="integral" style="display:none">
-					<!-- Añade productos aquí -->
-					<div class="producto">
-						<h4>Acemas Integrales</h4>
-						<p class="precio">$1.20</p>
-						<p class="descripcion">Acemas integrales ricas y aprovadas para una alimentación sana</p>
-					</div>
-				</div>
-				
-				<!-- Productos: Bebidas (oculto inicialmente) -->
-				<div class="productos-categoria" id="bebidas" style="display:none">
-					<div class="producto">
-						<h4>SunCola 2L</h4>
-						<p class="precio">$1.20</p>
-						<p class="descripcion">Refresco SunCola con sabor de tu preferencia</p>
-					</div>
-					<div class="producto">
-						<h4>SunCola 400ml</h4>
-						<p class="precio">$0.50</p>
-						<p class="descripcion">Refresco SunCola de 400ml con sabor de tu preferencia</p>
-					</div>
-				</div>
-				
-				<!-- Botón flotante para pedidos (dentro del catálogo) -->
-				<a href="https://wa.me/584261351097" class="boton-pedido" target="_blank">
-					🛒 Pedir por WhatsApp
-				</a>
-			</div>
-			
-			<!-- Otras secciones (Puntos de venta, Emprende, etc.) -->
-			<button class="boton-seccion" data-target="puntos-venta">Puntos de Venta</button>
-			<div id="puntos-venta" class="contenido-seccion">
-				Contenido de puntos de venta...
-			</div>
-			
-			<button class="boton-seccion" data-target="emprende">Emprende con nosotros</button>
-			<div id="emprende" class="contenido-seccion">
-				Contenido para emprender...
-			</div>
-		</div>
+            <button class="boton-seccion" data-target="catalogo">Catálogo completo de productos</button>
+            
+            <div id="catalogo" class="contenido-seccion">
+                <h3>Nuestro Catálogo Completo</h3>
+                
+                <div class="categorias">
+                    <button class="boton-categoria activo" data-categoria="panes">🍞 Panes</button>
+                    <button class="boton-categoria" data-categoria="reposteria">🎂 Repostería</button>
+                    <button class="boton-categoria" data-categoria="integral">🌾 Integral</button>
+                    <button class="boton-categoria" data-categoria="bebidas">☕ Bebidas</button>
+                </div>
+                
+                <div class="productos-categoria" id="panes">
+                    <div class="producto">
+                        <h4>Pan Salado</h4>
+                        <p class="precio">$1.20</p>
+                        <p class="descripcion">Clásico pan salado</p>
+                    </div>
+                    <div class="producto">
+                        <h4>Pan Campesino</h4>
+                        <p class="precio">$1.20</p>
+                        <p class="descripcion">Pan campesino</p>
+                    </div>
+                    <div class="producto">
+                        <h4>Pan Dulce</h4>
+                        <p class="precio">$1.20</p>
+                        <p class="descripcion">Clásico pan dulce azucarado</p>
+                    </div>
+                    <div class="producto">
+                        <h4>Pan Frances</h4>
+                        <p class="precio">$1.20</p>
+                        <p class="descripcion">Panes Franceses clásicos, crujientes y deliciosos</p>
+                    </div>
+                    <div class="producto">
+                        <h4>Manitas de arequipe</h4>
+                        <p class="precio">$1.20</p>
+                        <p class="descripcion">Manitas rellenas de arequipe</p>
+                    </div>
+                </div>
+                
+                <div class="productos-categoria" id="reposteria" style="display:none">
+                    <div class="producto">
+                        <h4>Palmeritas</h4>
+                        <p class="precio">$1.20</p>
+                        <p class="descripcion">Palmerita crujiene hecha con masa de hojaldre.
+                        ¡Producto estrella de Pacho's!</p>
+                    </div>
+                    <div class="producto">
+                        <h4>Torta Marmoleada (Trozo)</h4>
+                        <p class="precio">$1.00</p>
+                        <p class="descripcion">Torta suave y esponjosa con una  mezcla de vainilla y chocolate</p>
+                    </div>
+                    <div class="producto">
+                        <h4>Paledonia (Trozo)</h4>
+                        <p class="precio">$1.00</p>
+                        <p class="descripcion">Paledonia hecha con la mejor panela del estado</p>
+                    </div>
+                </div>
+                
+                <div class="productos-categoria" id="integral" style="display:none">
+                    <div class="producto">
+                        <h4>Acemas Integrales</h4>
+                        <p class="precio">$1.20</p>
+                        <p class="descripcion">Acemas integrales ricas y aprovadas para una alimentación sana</p>
+                    </div>
+                </div>
+                
+                <div class="productos-categoria" id="bebidas" style="display:none">
+                    <div class="producto">
+                        <h4>SunCola 2L</h4>
+                        <p class="precio">$1.20</p>
+                        <p class="descripcion">Refresco SunCola con sabor de tu preferencia</p>
+                    </div>
+                    <div class="producto">
+                        <h4>SunCola 400ml</h4>
+                        <p class="precio">$0.50</p>
+                        <p class="descripcion">Refresco SunCola de 400ml con sabor de tu preferencia</p>
+                    </div>
+                </div>
+                
+                <a href="https://wa.me/584261351097" class="boton-pedido" target="_blank">
+                    🛒 Pedir por WhatsApp
+                </a>
+            </div>
+            
+            <button class="boton-seccion" data-target="puntos-venta">Puntos de Venta</button>
+            <div id="puntos-venta" class="contenido-seccion">
+                Contenido de puntos de venta...
+            </div>
+            
+            <button class="boton-seccion" data-target="emprende">Emprende con nosotros</button>
+            <div id="emprende" class="contenido-seccion">
+                Contenido para emprender...
+            </div>
+        </div>
     </div>
     
-    <!-- Botón flotante de WhatsApp -->
     <a href="https://wa.me/584261351097" class="whatsapp-flotante" target="_blank" title="WhatsApp">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
