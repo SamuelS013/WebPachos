@@ -33,46 +33,6 @@ body {
     user-select: none;
 }
 
-.tabla-seccion {
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-    text-align: center; /* Centra el H1 y otros elementos de línea */
-}
-
-.tabla-seccion h1 {
-    color: #d2691e;
-    margin-bottom: 20px;
-}
-
-table {
-    display: block; /* Hace que la tabla se comporte como un bloque para centrado */
-    overflow-x: auto; /* Permite el scroll horizontal si el contenido es demasiado ancho */
-    -webkit-overflow-scrolling: touch;
-    width: 100%; /* Ocupa el 100% del contenedor .tabla-seccion */
-    max-width: 700px; /* Ancho máximo para pantallas grandes */
-    margin: 0 auto; /* Centra la tabla dentro de .tabla-seccion */
-    border-collapse: collapse;
-    font-size: 1.2em;
-}
-
-th, td {
-    padding: 15px 20px;
-    border-bottom: 1px solid #d8c2b2;
-    text-align: center; /* Centra el contenido de las celdas */
-    white-space: nowrap; /* Evita que el texto de la celda se rompa */
-}
-
-th {
-    background-color: #f5deb3;
-}
-
-tr:hover {
-    background-color: #faeee0;
-}
-
 .contenido {
     padding: 20px;
     max-width: 800px;
