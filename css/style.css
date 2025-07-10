@@ -1,0 +1,430 @@
+/* Estilos Generales y Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+}
+
+/* Header (ya no es fijo) */
+.main-header {
+    background-color: #EE6427; /* Naranja suave */
+    padding: 1rem 2rem; /* Padding vertical ajustado */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Mantiene los elementos en los extremos */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilos para el contenedor del logo (imagen + texto) */
+.logo {
+    display: flex; /* Convierte el logo en un contenedor flex */
+    align-items: center; /* Centra verticalmente la imagen y el texto */
+    gap: 10px; /* Espacio entre la imagen y el texto */
+}
+
+/* Estilos para la imagen del logo en el header */
+.logo-img {
+    height: auto; /* La altura se ajusta automáticamente */
+    width: auto; /* El ancho se ajusta automáticamente */
+    max-width: 250px; /* Ancho máximo para el logo */
+    display: block; /* Asegura que la imagen se comporte como un bloque para width/height */
+}
+
+/* Estilos para el texto al lado del logo */
+.logo-text {
+    font-size: 1.8rem; /* Tamaño de fuente para el texto */
+    color: #FEFDFE; /* Color que combine con el logo */
+    font-weight: bold;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
+
+.header-right-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Aumentado ligeramente el gap para más espacio */
+}
+
+.social-icons {
+    display: flex;
+    gap: 1.5rem; /* Aumentado ligeramente el gap para más espacio */
+}
+
+.social-icons a {
+    color: #FEFDFE;
+    font-size: 2rem; /* Aumentado el tamaño del icono */
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #81381A;
+}
+
+/* Menú Hamburguesa */
+.hamburger-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.hamburger-menu .fa-bars {
+    font-size: 2.5rem; /* Aumentado el tamaño del icono */
+    color: #FEFDFE;
+}
+
+.nav-links {
+    list-style: none;
+    display: none; /* Se controla con JS */
+    flex-direction: column;
+    background-color: #81381A;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-links.active {
+    display: flex; /* Muestra el menú cuando tiene la clase 'active' */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-links li {
+    width: 100%;
+    text-align: left;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.8rem 1.5rem;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: #E7CE99;
+    color: #81381A;
+}
+
+/* Contenido Principal Compacto */
+.main-content {
+    /* Eliminado el padding-top ya que el header ya no es fijo */
+    /* padding-top: 80px; */
+    max-width: 800px; /* Ancho máximo para el contenido principal */
+    margin: 0 auto; /* Centra el contenido */
+    padding: 20px;
+    box-sizing: content-box;
+}
+
+/* Título de la sección de productos */
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #5C4033;
+    margin-top: 1rem; /* Margen superior para separar del header */
+    margin-bottom: 1.5rem; /* Margen inferior para separar de la galería */
+}
+
+/* Contenedor de Galería para Flechas Fuera */
+.gallery-wrapper {
+    display: flex; /* Flexbox horizontal para alinear flechas y recuadro */
+    align-items: center; /* Centra verticalmente las flechas con el recuadro */
+    justify-content: center;
+    max-width: 100%;
+    position: relative; /* Para posicionar las flechas absolutamente */
+    padding: 0 20px; /* Espacio para las flechas a los lados */
+}
+
+/* Flechas de Navegación */
+.arrow {
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #8B4513;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.2s ease, color 0.3s ease;
+    outline: none;
+    position: absolute; /* Posicionamiento absoluto dentro de gallery-wrapper */
+    top: 50%; /* Alinea el borde superior al 50% del contenedor */
+    transform: translateY(-50%); /* Mueve la flecha hacia arriba la mitad de su altura para centrarla */
+    z-index: 10;
+}
+
+.left-arrow {
+    left: 0; /* Alinea la flecha izquierda al borde izquierdo del gallery-wrapper */
+}
+
+.right-arrow {
+    right: 0; /* Alinea la flecha derecha al borde derecho del gallery-wrapper */
+}
+
+.arrow:hover {
+    transform: scale(1.1);
+    color: #D2691E;
+}
+
+/* Cuadro de la Galería de Productos */
+.product-gallery {
+    background-color: #fff;
+    padding: 1.5rem; /* Padding interno del recuadro */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 330px; /* Ancho fijo del recuadro (300px imagen + 2*1.5rem padding) */
+    flex-shrink: 0; /* Evita que se encoja en flexbox */
+}
+
+.product-display {
+    text-align: center;
+}
+
+.product-display img {
+    width: 100%; /* Ocupa el 100% del ancho disponible en su contenedor */
+    height: auto; /* La altura se ajusta automáticamente para mantener la proporción */
+    /* object-fit: cover; se elimina para evitar recortes, la imagen se ajustará al ancho */
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: opacity 0.5s ease-in-out; /* Animación de fade */
+}
+
+.product-display h2 {
+    font-size: 1.8rem;
+    color: #5C4033;
+    margin-bottom: 0.5rem; /* Espacio entre el nombre y el precio */
+}
+
+/* Estilos para el precio del producto */
+.product-price {
+    font-size: 1.4rem; /* Tamaño de fuente para el precio */
+    color: #8B4513; /* Color para el precio */
+    font-weight: bold;
+    margin-bottom: 1rem; /* Espacio debajo del precio */
+}
+
+/* Indicadores de Navegación (dots) */
+.navigation-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem; /* Espacio entre los dots */
+    margin-top: 1rem; /* Margen superior para separar de la galería */
+}
+
+.dot {
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: #bbb; /* Color por defecto de los dots */
+    border-radius: 50%; /* Para hacerlos circulares */
+    cursor: pointer;
+    opacity: 0.7;
+    transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dot.active {
+    background-color: #8B4513; /* Color del dot activo */
+    opacity: 1;
+    transform: scale(1.1); /* Ligera escala para el dot activo */
+}
+
+.dot:hover {
+    opacity: 1;
+}
+
+/* Secciones de Información (Bloques Alargados y Clickeables) */
+.info-sections {
+    display: flex;
+    flex-direction: column; /* Apilados verticalmente */
+    gap: 1.5rem; /* Espacio entre los bloques */
+    margin-top: 3rem;
+}
+
+.info-block {
+    background-color: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.info-block.clickable {
+    cursor: pointer;
+}
+
+.info-block.clickable:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.info-block h3 {
+    color: #5C4033;
+    font-size: 1.4rem;
+}
+
+/* Footer */
+.main-footer {
+    background-color: #f0f0f0; /* Color de fondo tranquilo */
+    border-top: 5px solid #FFA07A; /* Borde superior naranja */
+    color: #555;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+}
+
+.footer-content h1 {
+    font-size: 1.2rem; /* Tamaño para los títulos en el footer */
+    margin-bottom: 0.3rem;
+    color: #5C4033;
+}
+
+.footer-content p {
+    margin-bottom: 0.5rem;
+}
+
+/* --- Responsive Design (Móvil Primero) --- */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 0.8rem 1rem;
+    }
+
+    /* Ajuste para el logo y texto en móvil */
+    .logo {
+        flex-direction: column; /* Apila el logo y el texto en móvil */
+        align-items: flex-start; /* Alinea a la izquierda en móvil */
+        gap: 5px; /* Menos espacio en móvil */
+    }
+    .logo-img {
+        height: auto; /* Altura automática en móvil */
+        max-width: 150px; /* Ancho máximo en móvil */
+    }
+    .logo-text {
+        font-size: 1.4rem; /* Tamaño de fuente más pequeño en móvil */
+        text-align: left; /* Alinea el texto a la izquierda en móvil */
+    }
+
+    .header-right-section {
+        gap: 1rem;
+    }
+
+    .social-icons a {
+        font-size: 1.2rem;
+    }
+
+    .hamburger-menu .fa-bars {
+        font-size: 1.6rem;
+    }
+
+    .nav-links {
+        min-width: unset;
+        width: 150px;
+        right: 1rem;
+        padding: 0.5rem 0;
+    }
+
+    .nav-links li a {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .main-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        max-width: 100%;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .gallery-wrapper {
+        flex-direction: column; /* Apila las flechas y el recuadro en móvil */
+        padding: 0; /* Quita el padding para que las flechas se alineen con el contenido */
+        margin: 2rem 0; /* Ajusta el margen en móvil también */
+    }
+
+    .arrow {
+        position: static; /* Vuelve a posicionamiento normal en móvil */
+        margin: 0.5rem 0;
+        font-size: 2rem;
+        align-self: center; /* Centra las flechas en móvil */
+    }
+
+    .product-gallery {
+        width: 250px; /* Coincide con el tamaño de la imagen en móvil */
+        padding: 1rem; /* Reduce el padding del recuadro */
+    }
+
+    .product-display img {
+        width: 100%; /* La imagen ocupa el 100% del ancho del recuadro */
+        height: auto; /* Altura automática en móvil también */
+    }
+
+    .product-display h2 {
+        font-size: 1.5rem;
+    }
+
+    .product-price {
+        font-size: 1.2rem; /* Tamaño de fuente más pequeño para el precio en móvil */
+    }
+
+    .navigation-dots {
+        margin-top: 0.5rem; /* Menos margen en móvil */
+    }
+
+    .dot {
+        width: 0.6rem;
+        height: 0.6rem;
+    }
+
+    .info-sections {
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .info-block {
+        padding: 1rem 1.5rem;
+    }
+
+    .info-block h3 {
+        font-size: 1.2rem;
+    }
+
+    .main-footer {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .footer-content h1 {
+        font-size: 1rem;
+    }
+
+    .footer-content p {
+        font-size: 0.8rem;
+    }
+}
