@@ -3,8 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const productImage = document.getElementById('product-image');
     const productName = document.getElementById('product-name');
     const productPrice = document.getElementById('product-price'); // Elemento para el precio
-    const leftArrow = document.querySelector('.left-arrow');
-    const rightArrow = document.querySelector('.right-arrow');
+    
+    // Seleccionamos ambas flechas, las de escritorio y las móviles
+    const leftArrowDesktop = document.querySelector('.left-arrow.desktop-arrow');
+    const rightArrowDesktop = document.querySelector('.right-arrow.desktop-arrow');
+    const leftArrowMobile = document.querySelector('.left-arrow.mobile-arrow');
+    const rightArrowMobile = document.querySelector('.right-arrow.mobile-arrow');
+
     const navigationDotsContainer = document.querySelector('.navigation-dots');
 
     // Array de productos con sus nombres, imágenes y precios
@@ -77,17 +82,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Event listener para la flecha izquierda (anterior producto)
-    leftArrow.addEventListener('click', () => {
-        currentProductIndex = (currentProductIndex - 1 + products.length) % products.length;
-        updateProductDisplay();
-    });
-
-    // Event listener para la flecha derecha (siguiente producto)
-    rightArrow.addEventListener('click', () => {
-        currentProductIndex = (currentProductIndex + 1) % products.length;
-        updateProductDisplay();
-    });
+    // Event listeners para las flechas (tanto de escritorio como móviles)
+    // Se adjuntan a ambos conjuntos de flechas, pero CSS controlará cuál es visible
+    if (leftArrowDesktop) { // Verificar si el elemento existe antes de añadir el listener
+        leftArrowDesktop.addEventListener('click', () => {
+            currentProductIndex = (currentProductIndex - 1 + products.length) % products.length;
+            updateProductDisplay();
+        });
+    }
+    if (rightArrowDesktop) {
+        rightArrowDesktop.addEventListener('click', () => {
+            currentProductIndex = (currentProductIndex + 1) % products.length;
+            updateProductDisplay();
+        });
+    }
+    if (leftArrowMobile) {
+        leftArrowMobile.addEventListener('click', () => {
+            currentProductIndex = (currentProductIndex - 1 + products.length) % products.length;
+            updateProductDisplay();
+        });
+    }
+    if (rightArrowMobile) {
+        rightArrowMobile.addEventListener('click', () => {
+            currentProductIndex = (currentProductIndex + 1) % products.length;
+            updateProductDisplay();
+        });
+    }
 
     createNavigationDots(); // Llama a la función para crear los dots al cargar la página
     updateProductDisplay(); // Muestra el primer producto y activa su dot al cargar la página
@@ -126,13 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const blockId = block.id; // Obtiene el ID del bloque clickeado
             switch (blockId) {
                 case 'catalogo-completo-section':
-                    alert('Navegando a la sección: Catálogo completo de productos');
+                    console.log('Navegando a la sección: Catálogo completo de productos'); // Cambiado de alert a console.log
                     break;
                 case 'puntos-venta-section':
-                    alert('Navegando a la sección: Puntos de venta');
+                    console.log('Navegando a la sección: Puntos de venta'); // Cambiado de alert a console.log
                     break;
                 case 'emprende-section':
-                    alert('Navegando a la sección: Emprende con nosotros');
+                    console.log('Navegando a la sección: Emprende con nosotros'); // Cambiado de alert a console.log
                     break;
                 default:
                     console.log('Bloque clickeado sin acción definida:', blockId);

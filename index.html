@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Panificadora Pacho's</title>
     <!-- Enlace a Font Awesome para los iconos -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- ENLACES A GOOGLE FONTS -->
+    <!-- Fuente Squada One (importada desde CSS, pero si prefieres link aquí, puedes hacerlo) -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet"> -->
+
     <!-- Enlace a la hoja de estilos CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -48,25 +57,33 @@
         
         <!-- Contenedor principal para la galería de productos y flechas -->
         <div class="gallery-wrapper">
-            <!-- Flecha de navegación izquierda -->
-            <button class="arrow left-arrow" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+            <!-- Flecha de navegación izquierda (visible en escritorio, oculta en móvil) -->
+            <button class="arrow left-arrow desktop-arrow" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+            
             <!-- Sección de la galería de productos con la imagen y el nombre -->
             <section class="product-gallery">
                 <div class="product-display">
+                    <!-- Flecha de navegación izquierda (visible SOLO en móvil, dentro de la imagen) -->
+                    <button class="arrow left-arrow mobile-arrow" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+
                     <!-- Imagen del producto, con placeholder inicial -->
                     <!-- Asegúrate de que la ruta 'img/palmeritas.jpeg' sea correcta en tu proyecto -->
                     <img id="product-image" src="img/palmeritas.jpeg" alt="Imagen del Producto">
                     <!-- Nombre del producto -->
                     <h2 id="product-name">Palmeritas</h2>
                     <p id="product-price" class="product-price">$0.00</p>
+
+                    <!-- Flecha de navegación derecha (visible SOLO en móvil, dentro de la imagen) -->
+                    <button class="arrow right-arrow mobile-arrow" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
                 </div>
                 <!-- Contenedor para los puntos de navegación (dots) -->
                 <div class="navigation-dots">
                     <!-- Los puntos se generarán dinámicamente con JavaScript aquí -->
                 </div>
             </section>
-            <!-- Flecha de navegación derecha -->
-            <button class="arrow right-arrow" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+            
+            <!-- Flecha de navegación derecha (visible en escritorio, oculta en móvil) -->
+            <button class="arrow right-arrow desktop-arrow" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
         </div>
 
         <!-- Sección de bloques de información clickeables -->

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+
 /* Estilos Generales y Reset */
 * {
     margin: 0;
@@ -6,10 +8,10 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial', sans-serif; /* Puedes cambiar esto a 'Squada One', sans-serif; si quieres que sea la fuente principal */
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f8f8;
+    color: black;
+    background-color: #FFF9EC;
 }
 
 /* Header (ya no es fijo) */
@@ -31,7 +33,7 @@ body {
 .logo {
     display: flex; /* Convierte el logo en un contenedor flex */
     align-items: center; /* Centra verticalmente la imagen y el texto */
-    gap: 10px; /* Espacio entre la imagen y el texto */
+    gap: 15px; /* Espacio entre la imagen y el texto */
 }
 
 /* Estilos para la imagen del logo en el header */
@@ -39,15 +41,18 @@ body {
     height: auto; /* La altura se ajusta automáticamente */
     width: auto; /* El ancho se ajusta automáticamente */
     max-width: 250px; /* Ancho máximo para el logo */
-    display: block; /* Asegura que la imagen se comporte como un bloque para width/height */
+    display: block;
 }
 
 /* Estilos para el texto al lado del logo */
 .logo-text {
+    font-family: 'Squada One', sans-serif; /* Aplicamos Squada One al texto del logo */
     font-size: 1.8rem; /* Tamaño de fuente para el texto */
     color: #FEFDFE; /* Color que combine con el logo */
     font-weight: bold;
-    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    text-align: justify; /* Alinea el texto tanto a la izquierda como a la derecha */
+    white-space: normal; /* Permite que el texto se rompa en varias líneas */
+    max-width: 150px; /* Limita el ancho del texto para que la justificación tenga efecto */
 }
 
 
@@ -59,12 +64,12 @@ body {
 
 .social-icons {
     display: flex;
-    gap: 1.5rem; /* Aumentado ligeramente el gap para más espacio */
+    gap: 1.5rem;
 }
 
 .social-icons a {
     color: #FEFDFE;
-    font-size: 2rem; /* Aumentado el tamaño del icono */
+    font-size: 2rem;
     transition: color 0.3s ease;
 }
 
@@ -79,7 +84,7 @@ body {
 }
 
 .hamburger-menu .fa-bars {
-    font-size: 2.5rem; /* Aumentado el tamaño del icono */
+    font-size: 2.5rem;
     color: #FEFDFE;
 }
 
@@ -93,7 +98,7 @@ body {
     right: 0;
     min-width: 200px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 1rem 0;
+    padding: 0.5rem 0;
     border-radius: 5px;
     opacity: 0;
     visibility: hidden;
@@ -117,7 +122,8 @@ body {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    padding: 0.8rem 1.5rem;
+    padding: 0.6rem 1.5rem;
+    border-bottom: 1px solid #E7CE99;
     display: block;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -129,8 +135,6 @@ body {
 
 /* Contenido Principal Compacto */
 .main-content {
-    /* Eliminado el padding-top ya que el header ya no es fijo */
-    /* padding-top: 80px; */
     max-width: 800px; /* Ancho máximo para el contenido principal */
     margin: 0 auto; /* Centra el contenido */
     padding: 20px;
@@ -141,7 +145,7 @@ body {
 .section-title {
     text-align: center;
     font-size: 2.2rem;
-    color: #5C4033;
+    color: #301711;
     margin-top: 1rem; /* Margen superior para separar del header */
     margin-bottom: 1.5rem; /* Margen inferior para separar de la galería */
 }
@@ -153,11 +157,11 @@ body {
     justify-content: center;
     max-width: 100%;
     position: relative; /* Para posicionar las flechas absolutamente */
-    padding: 0 20px; /* Espacio para las flechas a los lados */
+    padding: 0 20px; /* Espacio para las flechas a los lados en escritorio */
 }
 
-/* Flechas de Navegación */
-.arrow {
+/* Flechas de Navegación (Desktop) */
+.arrow.desktop-arrow {
     background: none;
     border: none;
     font-size: 2.5rem;
@@ -172,18 +176,24 @@ body {
     z-index: 10;
 }
 
-.left-arrow {
+.left-arrow.desktop-arrow {
     left: 0; /* Alinea la flecha izquierda al borde izquierdo del gallery-wrapper */
 }
 
-.right-arrow {
+.right-arrow.desktop-arrow {
     right: 0; /* Alinea la flecha derecha al borde derecho del gallery-wrapper */
 }
 
-.arrow:hover {
+.arrow.desktop-arrow:hover {
     transform: scale(1.1);
     color: #D2691E;
 }
+
+/* Flechas de Navegación (Mobile - inicialmente ocultas) */
+.arrow.mobile-arrow {
+    display: none; /* Ocultar por defecto en escritorio */
+}
+
 
 /* Cuadro de la Galería de Productos */
 .product-gallery {
@@ -198,12 +208,12 @@ body {
 
 .product-display {
     text-align: center;
+    position: relative; /* Necesario para posicionar las flechas móviles dentro */
 }
 
 .product-display img {
     width: 100%; /* Ocupa el 100% del ancho disponible en su contenedor */
     height: auto; /* La altura se ajusta automáticamente para mantener la proporción */
-    /* object-fit: cover; se elimina para evitar recortes, la imagen se ajustará al ancho */
     border-radius: 5px;
     margin-bottom: 1rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -212,8 +222,8 @@ body {
 
 .product-display h2 {
     font-size: 1.8rem;
-    color: #5C4033;
-    margin-bottom: 0.5rem; /* Espacio entre el nombre y el precio */
+    color: #301711;
+    margin-bottom: 0.4rem; /* Espacio entre el nombre y el precio */
 }
 
 /* Estilos para el precio del producto */
@@ -243,7 +253,7 @@ body {
 }
 
 .dot.active {
-    background-color: #8B4513; /* Color del dot activo */
+    background-color: #EE6427; /* Color del dot activo */
     opacity: 1;
     transform: scale(1.1); /* Ligera escala para el dot activo */
 }
@@ -263,7 +273,8 @@ body {
 .info-block {
     background-color: #fff;
     padding: 1.5rem 2rem;
-    border-radius: 8px;
+    border: 1px solid #EE6427;
+    border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -280,15 +291,20 @@ body {
 }
 
 .info-block h3 {
-    color: #5C4033;
+    color: #301711;
     font-size: 1.4rem;
+}
+
+.info-block p {
+    color: #301711;
+    font-size: 1rem;
 }
 
 /* Footer */
 .main-footer {
-    background-color: #f0f0f0; /* Color de fondo tranquilo */
-    border-top: 5px solid #FFA07A; /* Borde superior naranja */
-    color: #555;
+    background-color: #FFEFCE; /* Color de fondo tranquilo */
+    border-top: 5px solid #EE6427; /* Borde superior naranja */
+    color: #301711;
     text-align: center;
     padding: 2rem;
     margin-top: 3rem;
@@ -298,7 +314,7 @@ body {
 .footer-content h1 {
     font-size: 1.2rem; /* Tamaño para los títulos en el footer */
     margin-bottom: 0.3rem;
-    color: #5C4033;
+    color: #301711;
 }
 
 .footer-content p {
@@ -368,11 +384,30 @@ body {
         margin: 2rem 0; /* Ajusta el margen en móvil también */
     }
 
-    .arrow {
-        position: static; /* Vuelve a posicionamiento normal en móvil */
-        margin: 0.5rem 0;
-        font-size: 2rem;
-        align-self: center; /* Centra las flechas en móvil */
+    /* Ocultar flechas de escritorio en móvil */
+    .arrow.desktop-arrow {
+        display: none;
+    }
+
+    /* Mostrar y posicionar flechas móviles dentro de la imagen */
+    .arrow.mobile-arrow {
+        display: block; /* Mostrar en móvil */
+        position: absolute; /* Posicionamiento absoluto dentro de product-display */
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 3rem; /* Tamaño más grande para facilitar el toque */
+        color: rgba(255, 255, 255, 0.8); /* Blanco con alta opacidad */
+        text-shadow: 0 0 8px rgba(0,0,0,0.7); /* Sombra para mejor visibilidad sobre la imagen */
+        z-index: 15; /* Asegura que estén por encima de la imagen */
+        padding: 0.5rem; /* Aumentar el área de toque */
+    }
+
+    .left-arrow.mobile-arrow {
+        left: 10px; /* Margen desde la izquierda de la imagen */
+    }
+
+    .right-arrow.mobile-arrow {
+        right: 10px; /* Margen desde la derecha de la imagen */
     }
 
     .product-gallery {
