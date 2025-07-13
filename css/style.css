@@ -324,34 +324,39 @@ body {
 /* --- Responsive Design (Móvil Primero) --- */
 @media (max-width: 768px) {
     .main-header {
-        padding: 0.8rem 1rem;
+        padding: 0.5rem 1rem; /* Reducido aún más el padding para un header más compacto */
     }
 
     /* Ajuste para el logo y texto en móvil */
     .logo {
-        flex-direction: column; /* Apila el logo y el texto en móvil */
-        align-items: flex-start; /* Alinea a la izquierda en móvil */
-        gap: 5px; /* Menos espacio en móvil */
+        flex-direction: row; /* Vuelve a poner el logo y texto en línea */
+        align-items: center; /* Centra verticalmente */
+        gap: 8px; /* Espacio entre la imagen y el texto */
     }
     .logo-img {
-        height: auto; /* Altura automática en móvil */
-        max-width: 150px; /* Ancho máximo en móvil */
+        height: auto; /* Altura automática */
+        max-width: 80px; /* Reducido drásticamente el tamaño del logo */
     }
     .logo-text {
-        font-size: 1.4rem; /* Tamaño de fuente más pequeño en móvil */
-        text-align: left; /* Alinea el texto a la izquierda en móvil */
+        font-size: 1.1rem; /* Tamaño de fuente más pequeño para el texto del logo */
+        text-align: left; /* Alinea a la izquierda, la justificación no tiene mucho efecto en 2 palabras */
+        max-width: 100px; /* Ajusta el ancho máximo para el texto */
     }
 
     .header-right-section {
-        gap: 1rem;
+        gap: 0.8rem; /* Reducido el espacio entre iconos sociales y hamburguesa */
+    }
+
+    .social-icons {
+        gap: 0.8rem; /* Reducido el espacio entre iconos sociales */
     }
 
     .social-icons a {
-        font-size: 1.2rem;
+        font-size: 1.4rem; /* Reducido el tamaño de los iconos sociales */
     }
 
     .hamburger-menu .fa-bars {
-        font-size: 1.6rem;
+        font-size: 1.8rem; /* Reducido el tamaño del icono de hamburguesa */
     }
 
     .nav-links {
@@ -395,19 +400,21 @@ body {
         position: absolute; /* Posicionamiento absoluto dentro de product-display */
         top: 50%;
         transform: translateY(-50%);
-        font-size: 3rem; /* Tamaño más grande para facilitar el toque */
-        color: rgba(255, 255, 255, 0.8); /* Blanco con alta opacidad */
-        text-shadow: 0 0 8px rgba(0,0,0,0.7); /* Sombra para mejor visibilidad sobre la imagen */
+        font-size: 1.5rem; /* Tamaño mucho más pequeño */
+        color: rgba(255, 255, 255, 0.1); /* Blanco con muy baja opacidad (casi transparente) */
+        background: none; /* Asegura que no haya fondo */
+        border: none; /* Asegura que no haya borde */
+        text-shadow: none; /* Elimina la sombra */
         z-index: 15; /* Asegura que estén por encima de la imagen */
-        padding: 0.5rem; /* Aumentar el área de toque */
+        padding: 0.2rem; /* Reduce el área de toque para hacerlas más pequeñas visualmente */
     }
 
     .left-arrow.mobile-arrow {
-        left: 10px; /* Margen desde la izquierda de la imagen */
+        left: 5px; /* Margen más pequeño desde la izquierda de la imagen */
     }
 
     .right-arrow.mobile-arrow {
-        right: 10px; /* Margen desde la derecha de la imagen */
+        right: 5px; /* Margen más pequeño desde la derecha de la imagen */
     }
 
     .product-gallery {
