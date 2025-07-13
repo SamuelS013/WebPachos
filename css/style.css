@@ -364,6 +364,7 @@ body {
         width: 150px;
         right: 1rem;
         padding: 0.5rem 0;
+        z-index: 1001;
     }
 
     .nav-links li a {
@@ -401,7 +402,7 @@ body {
         top: 50%;
         transform: translateY(-50%);
         font-size: 1.5rem; /* Tamaño mucho más pequeño */
-        color: rgba(255, 255, 255, 0.1); /* Blanco con muy baja opacidad (casi transparente) */
+        color: rgba(255, 255, 255, 30); /* Blanco con muy baja opacidad (casi transparente) */
         background: none; /* Asegura que no haya fondo */
         border: none; /* Asegura que no haya borde */
         text-shadow: none; /* Elimina la sombra */
