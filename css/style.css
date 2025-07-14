@@ -12,6 +12,11 @@ body {
     line-height: 1.6;
     color: black;
     background-color: #FFF9EC;
+    background-image: url('../img/fondo.png'); 
+    background-size: cover; /* Cubre todo el área del body, recortando si es necesario para evitar espacios vacíos */
+    background-position: center center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed;
 }
 
 /* Header (ya no es fijo) */
@@ -143,11 +148,13 @@ body {
 
 /* Título de la sección de productos */
 .section-title {
+	background-color: white;
     text-align: center;
     font-size: 2.2rem;
     color: #301711;
-    margin-top: 1rem; /* Margen superior para separar del header */
-    margin-bottom: 1.5rem; /* Margen inferior para separar de la galería */
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 50px;
 }
 
 /* Contenedor de Galería para Flechas Fuera */
@@ -165,7 +172,7 @@ body {
     background: none;
     border: none;
     font-size: 2.5rem;
-    color: #8B4513;
+    color: #301711;
     cursor: pointer;
     padding: 0.5rem;
     transition: transform 0.2s ease, color 0.3s ease;
@@ -402,7 +409,7 @@ body {
         top: 50%;
         transform: translateY(-50%);
         font-size: 1.5rem; /* Tamaño mucho más pequeño */
-        color: rgba(255, 255, 255, 30); /* Blanco con muy baja opacidad (casi transparente) */
+        color: rgba(48, 23, 17, 30); /* Blanco con muy baja opacidad (casi transparente) */
         background: none; /* Asegura que no haya fondo */
         border: none; /* Asegura que no haya borde */
         text-shadow: none; /* Elimina la sombra */
