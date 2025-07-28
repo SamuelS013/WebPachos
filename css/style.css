@@ -11,8 +11,7 @@ body {
     font-family: 'Arial', sans-serif; /* Puedes cambiar esto a 'Squada One', sans-serif; si quieres que sea la fuente principal */
     line-height: 1.6;
     color: black;
-    background-color: #FFF9EC;
-    background-image: url('../img/fondo.png'); 
+    background-color: #FFF9EC; 
     background-size: cover; /* Cubre todo el área del body, recortando si es necesario para evitar espacios vacíos */
     background-position: center center; /* Centra la imagen de fondo */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -148,13 +147,11 @@ body {
 
 /* Título de la sección de productos */
 .section-title {
-	background-color: white;
     text-align: center;
     font-size: 2.2rem;
     color: #301711;
     margin-top: 1rem;
     margin-bottom: 1.5rem;
-    border-radius: 50px;
 }
 
 /* Contenedor de Galería para Flechas Fuera */
@@ -179,7 +176,6 @@ body {
     outline: none;
     position: absolute; /* Posicionamiento absoluto dentro de gallery-wrapper */
     top: 50%; /* Alinea el borde superior al 50% del contenedor */
-    transform: translateY(-50%); /* Mueve la flecha hacia arriba la mitad de su altura para centrarla */
     z-index: 10;
 }
 
@@ -205,6 +201,7 @@ body {
 /* Cuadro de la Galería de Productos */
 .product-gallery {
     background-color: #fff;
+    /* background-image: url('../img/fondo.png'); */
     padding: 1.5rem; /* Padding interno del recuadro */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
