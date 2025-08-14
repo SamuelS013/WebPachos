@@ -157,22 +157,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const productsData = [
             // Panes
             { name: 'Pan Salado', description: 'Pan de masa madre, suave y delicioso.', price: '$1.20', image: 'img/pan-salado.jpeg', category: 'panes' },
-            { name: 'Palmeritas', description: 'Delicadas palmeritas de hojaldre con azúcar.', price: '$1.20', image: 'img/palmeritas.jpeg', category: 'panes' },
             { name: 'Pan Dulce', description: 'Pan esponjoso con un toque de azúcar.', price: '$1.20', image: 'img/pan-dulce.jpeg', category: 'panes' },
-            { name: 'Acema Dulce', description: 'Acema artesanal con glaseado de azúcar.', price: '$0.60', image: 'https://placehold.co/400x400/fff9ec/301711?text=Acema', category: 'panes' },
+            { name: 'Acema Dulce', description: 'Acema de masa dulce con glaseado de azúcar.', price: '$0.60', image: 'https://placehold.co/400x400/fff9ec/301711?text=Acema', category: 'panes' },
 
             // Repostería
-            { name: 'Paledonia', description: 'Paledonia casera, ideal para el café.', price: '$0.90', image: 'https://placehold.co/400x400/fff9ec/301711?text=Paledonia', category: 'reposteria' },
-            { name: 'Torta Marmoleada', description: 'Torta de vainilla y chocolate, por porción.', price: '$1.00', image: 'https://placehold.co/400x400/fff9ec/301711?text=Torta+Marmoleada', category: 'reposteria' },
-            { name: 'Milhojas', description: 'Milhojas de crema pastelera, crujientes y deliciosas.', price: '$1.50', image: 'https://placehold.co/400x400/fff9ec/301711?text=Milhojas', category: 'reposteria' },
-            { name: 'Quesillo', description: 'Postre tradicional, cremoso y con caramelo.', price: '$1.00', image: 'https://placehold.co/400x400/fff9ec/301711?text=Quesillo', category: 'reposteria' },
+            { name: 'Palmeritas', description: 'Palmeritas de hojaldre, nuestro producto estrella.', price: '$1.20', image: 'img/palmeritas.jpeg', category: 'reposteria' },
+            { name: 'Paledonia (Trozo)', description: 'Paledonia esponjosa ideal para el café.', price: '$0.90', image: 'https://placehold.co/400x400/fff9ec/301711?text=Paledonia', category: 'reposteria' },
+            { name: 'Torta Marmoleada (Trozo)', description: 'Torta de vainilla y chocolate, por porción.', price: '$1.00', image: 'https://placehold.co/400x400/fff9ec/301711?text=Torta+Marmoleada', category: 'reposteria' },
+            { name: 'Quesillo', description: 'Quesillo tradicional, cremoso y con caramelo.', price: '$desconocido', image: 'https://placehold.co/400x400/fff9ec/301711?text=Quesillo', category: 'reposteria' },
 
             // Integral
-            { name: 'Pan Integral', description: 'Pan de harina integral, saludable y nutritivo.', price: '$1.50', image: 'https://placehold.co/400x400/fff9ec/301711?text=Pan+Integral', category: 'integral' },
+            { name: 'Acema Integral', description: 'Ideal para los amantes del pan integral.', price: '$1.20', image: 'https://placehold.co/400x400/fff9ec/301711?text=Pan+Integral', category: 'integral' },
             
             // Bebidas
-            { name: 'Jugo de Naranja', description: 'Jugo natural de naranja, recién exprimido.', price: '$0.80', image: 'https://placehold.co/400x400/fff9ec/301711?text=Jugo+Naranja', category: 'bebidas' },
-            { name: 'Café con Leche', description: 'Café recién hecho con leche.', price: '$0.75', image: 'https://placehold.co/400x400/fff9ec/301711?text=Cafe', category: 'bebidas' }
+            { name: 'SunCola 2lts', description: 'Refresco SunCola 2lts del sabor preferencial.', price: '$0.1.20', image: 'https://placehold.co/400x400/fff9ec/301711?text=Jugo+Naranja', category: 'bebidas' },
+            { name: 'SunCola 400ml', description: 'Refresco SunCola 400ml del sabor prefencial.', price: '$0.75', image: 'https://placehold.co/400x400/fff9ec/301711?text=Cafe', category: 'bebidas' }
         ];
 
         const productContainer = document.getElementById('product-container');

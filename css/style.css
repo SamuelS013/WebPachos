@@ -425,10 +425,8 @@ body {
         top: 50%;
         transform: translateY(-50%);
         font-size: 1.5rem;
-        color: rgba(48, 23, 17, 0.5); /* Color más visible pero semi-transparente */
-        background-color: rgba(255, 255, 255, 0.4); /* Fondo semi-transparente */
+        color: #301711;
         border: none;
-        border-radius: 50%;
         padding: 0.5rem;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         z-index: 15;
