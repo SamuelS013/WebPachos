@@ -1,0 +1,176 @@
+/* Importa las fuentes que ya estamos usando para consistencia */
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+/* --- Estilos específicos para la página de Catálogo --- */
+
+/* Contenido principal */
+.main-content {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Título de la sección principal */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #301711;
+    margin-bottom: 2rem;
+}
+
+/* Menú de Categorías */
+.category-menu {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.category-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border: 2px solid #EE6427;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #FFF9EC;
+    padding: 0.5rem;
+}
+
+/* Hover y estado activo con el mismo estilo para consistencia */
+.category-icon:hover, .category-icon.active {
+    background-color: #EE6427;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.category-icon .icon {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+    color: #301711;
+}
+
+.category-icon:hover .icon, .category-icon.active .icon {
+    color: #fff;
+}
+
+.category-icon .text {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #301711;
+}
+
+.category-icon:hover .text, .category-icon.active .text {
+    color: #fff;
+}
+
+
+/* Contenedor del grid de productos */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+/* Tarjeta de cada producto */
+.product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Ajuste para que las tarjetas tengan la misma altura */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.product-card .product-image {
+    width: 100%;
+    height: 150px; /* Altura fija para las imágenes */
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.product-card .product-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #301711;
+    margin-bottom: 0.5rem;
+}
+
+.product-card .product-description {
+    font-size: 0.9rem;
+    color: #555;
+    flex-grow: 1;
+    margin-bottom: 0.5rem;
+}
+
+.product-card .product-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #8B4513;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .main-content {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .category-menu {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .category-icon {
+        width: 70px;
+        height: 70px;
+        padding: 0.3rem;
+    }
+
+    .category-icon .icon {
+        font-size: 1.5rem;
+    }
+
+    .category-icon .text {
+        font-size: 0.8rem;
+    }
+    
+    .product-grid {
+        gap: 1rem;
+    }
+
+    .product-card .product-image {
+        height: 120px;
+    }
+
+    .product-card .product-name {
+        font-size: 1rem;
+    }
+
+    .product-card .product-price {
+        font-size: 0.9rem;
+    }
+}

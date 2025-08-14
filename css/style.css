@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
 /* Estilos Generales y Reset */
 * {
@@ -8,62 +9,59 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif; /* Puedes cambiar esto a 'Squada One', sans-serif; si quieres que sea la fuente principal */
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: black;
     background-color: #FFF9EC; 
-    background-size: cover; /* Cubre todo el área del body, recortando si es necesario para evitar espacios vacíos */
-    background-position: center center; /* Centra la imagen de fondo */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-/* Header (ya no es fijo) */
+/* Header */
 .main-header {
-    background-color: #EE6427; /* Naranja suave */
-    padding: 1rem 2rem; /* Padding vertical ajustado */
+    background-color: #EE6427;
+    padding: 1rem 2rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between; /* Mantiene los elementos en los extremos */
+    justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Estilos para el contenedor del logo (imagen + texto) */
 .logo {
-    display: flex; /* Convierte el logo en un contenedor flex */
-    align-items: center; /* Centra verticalmente la imagen y el texto */
-    gap: 15px; /* Espacio entre la imagen y el texto */
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-/* Estilos para la imagen del logo en el header */
 .logo-img {
-    height: auto; /* La altura se ajusta automáticamente */
-    width: auto; /* El ancho se ajusta automáticamente */
-    max-width: 250px; /* Ancho máximo para el logo */
+    height: auto;
+    width: auto;
+    max-width: 250px;
     display: block;
 }
 
-/* Estilos para el texto al lado del logo */
 .logo-text {
-    font-family: 'Squada One', sans-serif; /* Aplicamos Squada One al texto del logo */
-    font-size: 1.8rem; /* Tamaño de fuente para el texto */
-    color: #FEFDFE; /* Color que combine con el logo */
+    font-family: 'Squada One', sans-serif;
+    font-size: 1.8rem;
+    color: #FEFDFE;
     font-weight: bold;
-    text-align: justify; /* Alinea el texto tanto a la izquierda como a la derecha */
-    white-space: normal; /* Permite que el texto se rompa en varias líneas */
-    max-width: 150px; /* Limita el ancho del texto para que la justificación tenga efecto */
+    text-align: justify;
+    white-space: normal;
+    max-width: 150px;
 }
 
 
 .header-right-section {
     display: flex;
     align-items: center;
-    gap: 2rem; /* Aumentado ligeramente el gap para más espacio */
+    gap: 2rem;
 }
 
 .social-icons {
@@ -94,7 +92,7 @@ body {
 
 .nav-links {
     list-style: none;
-    display: none; /* Se controla con JS */
+    display: none;
     flex-direction: column;
     background-color: #81381A;
     position: absolute;
@@ -108,10 +106,11 @@ body {
     visibility: hidden;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 1001; /* Añadido z-index para asegurar que esté sobre el resto del contenido */
 }
 
 .nav-links.active {
-    display: flex; /* Muestra el menú cuando tiene la clase 'active' */
+    display: flex;
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -139,8 +138,8 @@ body {
 
 /* Contenido Principal Compacto */
 .main-content {
-    max-width: 800px; /* Ancho máximo para el contenido principal */
-    margin: 0 auto; /* Centra el contenido */
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
     box-sizing: content-box;
 }
@@ -156,12 +155,12 @@ body {
 
 /* Contenedor de Galería para Flechas Fuera */
 .gallery-wrapper {
-    display: flex; /* Flexbox horizontal para alinear flechas y recuadro */
-    align-items: center; /* Centra verticalmente las flechas con el recuadro */
+    display: flex;
+    align-items: center;
     justify-content: center;
     max-width: 100%;
-    position: relative; /* Para posicionar las flechas absolutamente */
-    padding: 0 20px; /* Espacio para las flechas a los lados en escritorio */
+    position: relative;
+    padding: 0 20px;
 }
 
 /* Flechas de Navegación (Desktop) */
@@ -174,17 +173,18 @@ body {
     padding: 0.5rem;
     transition: transform 0.2s ease, color 0.3s ease;
     outline: none;
-    position: absolute; /* Posicionamiento absoluto dentro de gallery-wrapper */
-    top: 50%; /* Alinea el borde superior al 50% del contenedor */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centrado verticalmente */
     z-index: 10;
 }
 
 .left-arrow.desktop-arrow {
-    left: 0; /* Alinea la flecha izquierda al borde izquierdo del gallery-wrapper */
+    left: 0;
 }
 
 .right-arrow.desktop-arrow {
-    right: 0; /* Alinea la flecha derecha al borde derecho del gallery-wrapper */
+    right: 0;
 }
 
 .arrow.desktop-arrow:hover {
@@ -194,83 +194,106 @@ body {
 
 /* Flechas de Navegación (Mobile - inicialmente ocultas) */
 .arrow.mobile-arrow {
-    display: none; /* Ocultar por defecto en escritorio */
+    display: none;
 }
 
 
 /* Cuadro de la Galería de Productos */
 .product-gallery {
     background-color: #fff;
-    /* background-image: url('../img/fondo.png'); */
-    padding: 1.5rem; /* Padding interno del recuadro */
+    padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
-    width: 330px; /* Ancho fijo del recuadro (300px imagen + 2*1.5rem padding) */
-    flex-shrink: 0; /* Evita que se encoja en flexbox */
+    width: 330px;
+    flex-shrink: 0;
 }
 
 .product-display {
     text-align: center;
-    position: relative; /* Necesario para posicionar las flechas móviles dentro */
+    position: relative;
 }
 
 .product-display img {
-    width: 100%; /* Ocupa el 100% del ancho disponible en su contenedor */
-    height: auto; /* La altura se ajusta automáticamente para mantener la proporción */
+    width: 100%;
+    height: auto;
     border-radius: 5px;
     margin-bottom: 1rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: opacity 0.5s ease-in-out; /* Animación de fade */
+    transition: opacity 0.5s ease-in-out;
 }
 
 .product-display h2 {
     font-size: 1.8rem;
     color: #301711;
-    margin-bottom: 0.4rem; /* Espacio entre el nombre y el precio */
+    margin-bottom: 0.4rem;
 }
 
 /* Estilos para el precio del producto */
 .product-price {
-    font-size: 1.4rem; /* Tamaño de fuente para el precio */
-    color: #8B4513; /* Color para el precio */
+    font-size: 1.4rem;
+    color: #8B4513;
     font-weight: bold;
-    margin-bottom: 1rem; /* Espacio debajo del precio */
+    margin-bottom: 1rem;
+}
+
+/* Estilos para el botón de WhatsApp */
+.whatsapp-btn {
+    display: block; /* Ocupa el ancho completo */
+    background-color: #25D366; /* Color de WhatsApp */
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    border-radius: 50px; /* Bordes más redondeados */
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1.5rem; /* Espacio superior */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para el botón */
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+}
+
+.whatsapp-btn i {
+    margin-right: 0.5rem;
 }
 
 /* Indicadores de Navegación (dots) */
 .navigation-dots {
     display: flex;
     justify-content: center;
-    gap: 0.6rem; /* Espacio entre los dots */
-    margin-top: 1rem; /* Margen superior para separar de la galería */
+    gap: 0.6rem;
+    margin-top: 1rem;
 }
 
 .dot {
     width: 0.8rem;
     height: 0.8rem;
-    background-color: #bbb; /* Color por defecto de los dots */
-    border-radius: 50%; /* Para hacerlos circulares */
+    background-color: #bbb;
+    border-radius: 50%;
     cursor: pointer;
     opacity: 0.7;
     transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .dot.active {
-    background-color: #EE6427; /* Color del dot activo */
+    background-color: #EE6427;
     opacity: 1;
-    transform: scale(1.1); /* Ligera escala para el dot activo */
+    transform: scale(1.1);
 }
 
 .dot:hover {
     opacity: 1;
 }
 
-/* Secciones de Información (Bloques Alargados y Clickeables) */
+/* Secciones de Información */
 .info-sections {
     display: flex;
-    flex-direction: column; /* Apilados verticalmente */
-    gap: 1.5rem; /* Espacio entre los bloques */
+    flex-direction: column;
+    gap: 1.5rem;
     margin-top: 3rem;
 }
 
@@ -282,7 +305,7 @@ body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%; /* Ocupa todo el ancho disponible */
+    width: 100%;
 }
 
 .info-block.clickable {
@@ -306,8 +329,8 @@ body {
 
 /* Footer */
 .main-footer {
-    background-color: #FFEFCE; /* Color de fondo tranquilo */
-    border-top: 5px solid #EE6427; /* Borde superior naranja */
+    background-color: #FFEFCE;
+    border-top: 5px solid #EE6427;
     color: #301711;
     text-align: center;
     padding: 2rem;
@@ -316,7 +339,7 @@ body {
 }
 
 .footer-content h1 {
-    font-size: 1.2rem; /* Tamaño para los títulos en el footer */
+    font-size: 1.2rem;
     margin-bottom: 0.3rem;
     color: #301711;
 }
@@ -328,39 +351,38 @@ body {
 /* --- Responsive Design (Móvil Primero) --- */
 @media (max-width: 768px) {
     .main-header {
-        padding: 0.5rem 1rem; /* Reducido aún más el padding para un header más compacto */
+        padding: 0.5rem 1rem;
     }
 
-    /* Ajuste para el logo y texto en móvil */
     .logo {
-        flex-direction: row; /* Vuelve a poner el logo y texto en línea */
-        align-items: center; /* Centra verticalmente */
-        gap: 8px; /* Espacio entre la imagen y el texto */
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
     }
     .logo-img {
-        height: auto; /* Altura automática */
-        max-width: 80px; /* Reducido drásticamente el tamaño del logo */
+        height: auto;
+        max-width: 80px;
     }
     .logo-text {
-        font-size: 1.1rem; /* Tamaño de fuente más pequeño para el texto del logo */
-        text-align: left; /* Alinea a la izquierda, la justificación no tiene mucho efecto en 2 palabras */
-        max-width: 100px; /* Ajusta el ancho máximo para el texto */
+        font-size: 1.1rem;
+        text-align: left;
+        max-width: 100px;
     }
 
     .header-right-section {
-        gap: 0.8rem; /* Reducido el espacio entre iconos sociales y hamburguesa */
+        gap: 0.8rem;
     }
 
     .social-icons {
-        gap: 0.8rem; /* Reducido el espacio entre iconos sociales */
+        gap: 0.8rem;
     }
 
     .social-icons a {
-        font-size: 1.4rem; /* Reducido el tamaño de los iconos sociales */
+        font-size: 1.4rem;
     }
 
     .hamburger-menu .fa-bars {
-        font-size: 1.8rem; /* Reducido el tamaño del icono de hamburguesa */
+        font-size: 1.8rem;
     }
 
     .nav-links {
@@ -368,7 +390,6 @@ body {
         width: 150px;
         right: 1rem;
         padding: 0.5rem 0;
-        z-index: 1001;
     }
 
     .nav-links li a {
@@ -389,47 +410,46 @@ body {
     }
 
     .gallery-wrapper {
-        flex-direction: column; /* Apila las flechas y el recuadro en móvil */
-        padding: 0; /* Quita el padding para que las flechas se alineen con el contenido */
-        margin: 2rem 0; /* Ajusta el margen en móvil también */
+        flex-direction: column;
+        padding: 0;
+        margin: 2rem 0;
     }
 
-    /* Ocultar flechas de escritorio en móvil */
     .arrow.desktop-arrow {
         display: none;
     }
 
-    /* Mostrar y posicionar flechas móviles dentro de la imagen */
     .arrow.mobile-arrow {
-        display: block; /* Mostrar en móvil */
-        position: absolute; /* Posicionamiento absoluto dentro de product-display */
+        display: block;
+        position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        font-size: 1.5rem; /* Tamaño mucho más pequeño */
-        color: rgba(48, 23, 17, 30); /* Blanco con muy baja opacidad (casi transparente) */
-        background: none; /* Asegura que no haya fondo */
-        border: none; /* Asegura que no haya borde */
-        text-shadow: none; /* Elimina la sombra */
-        z-index: 15; /* Asegura que estén por encima de la imagen */
-        padding: 0.2rem; /* Reduce el área de toque para hacerlas más pequeñas visualmente */
+        font-size: 1.5rem;
+        color: rgba(48, 23, 17, 0.5); /* Color más visible pero semi-transparente */
+        background-color: rgba(255, 255, 255, 0.4); /* Fondo semi-transparente */
+        border: none;
+        border-radius: 50%;
+        padding: 0.5rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 15;
     }
 
     .left-arrow.mobile-arrow {
-        left: 5px; /* Margen más pequeño desde la izquierda de la imagen */
+        left: 5px;
     }
 
     .right-arrow.mobile-arrow {
-        right: 5px; /* Margen más pequeño desde la derecha de la imagen */
+        right: 5px;
     }
 
     .product-gallery {
-        width: 250px; /* Coincide con el tamaño de la imagen en móvil */
-        padding: 1rem; /* Reduce el padding del recuadro */
+        width: 250px;
+        padding: 1rem;
     }
 
     .product-display img {
-        width: 100%; /* La imagen ocupa el 100% del ancho del recuadro */
-        height: auto; /* Altura automática en móvil también */
+        width: 100%;
+        height: auto;
     }
 
     .product-display h2 {
@@ -437,11 +457,16 @@ body {
     }
 
     .product-price {
-        font-size: 1.2rem; /* Tamaño de fuente más pequeño para el precio en móvil */
+        font-size: 1.2rem;
+    }
+    
+    .whatsapp-btn {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
     }
 
     .navigation-dots {
-        margin-top: 0.5rem; /* Menos margen en móvil */
+        margin-top: 0.5rem;
     }
 
     .dot {

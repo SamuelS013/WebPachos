@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Panificadora Pacho's</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="img/logo.png" type="image/x-icon">
@@ -14,7 +13,6 @@
         <nav class="navbar">
             <!-- Sección del logo, con imagen y texto al lado, a la izquierda -->
             <div class="logo">
-                <!-- Aquí puedes reemplazar la URL con la ruta a tu imagen de logo -->
                 <img src="img/logo-pachos.png" alt="Logo" class="logo-img">
                 <span class="logo-text">Panificadora<br>Pacho's</span>
             </div>
@@ -22,7 +20,7 @@
             <div class="header-right-section">
                 <!-- Iconos de redes sociales clicables -->
                 <div class="social-icons">
-                    <a href "https://www.instagram.com/panificadorapachos?igsh=MWx5c3h6djg4aTEzeQ==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/panificadorapachos?igsh=MWx5c3h6djg4aTEzeQ==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://wa.me/+584140770512" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
                 <!-- Menú hamburguesa para navegación en dispositivos móviles/pequeños -->
@@ -30,10 +28,10 @@
                     <i class="fas fa-bars"></i>
                     <!-- Enlaces de navegación que se muestran al activar el menú hamburguesa -->
                     <ul class="nav-links">
-                        <li><a href="#catalogo-completo-section">Catálogo completo de productos</a></li>
+                        <li><a href="catalogo.html">Catálogo completo de productos</a></li>
                         <li><a href="#puntos-venta-section">Puntos de venta</a></li>
                         <li><a href="#emprende-section">Emprende con nosotros</a></li>
-                        <li><a href="https://wa.me/+584261351097">Contáctanos</a></li>
+                        <li><a href="https://wa.me/+584140770512">Contáctanos</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,11 +55,16 @@
                     <button class="arrow left-arrow mobile-arrow" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
 
                     <!-- Imagen del producto, con placeholder inicial -->
-                    <!-- Asegúrate de que la ruta 'img/palmeritas.jpeg' sea correcta en tu proyecto -->
                     <img id="product-image" src="img/palmeritas.jpeg" alt="Imagen del Producto">
                     <!-- Nombre del producto -->
                     <h2 id="product-name">Palmeritas</h2>
+                    <!-- Precio del producto -->
                     <p id="product-price" class="product-price">$0.00</p>
+                    
+                    <!-- Botón para pedir por WhatsApp -->
+                    <a id="whatsapp-order-btn" class="whatsapp-btn" href="#" target="_blank">
+                      <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                    </a>
 
                     <!-- Flecha de navegación derecha (visible SOLO en móvil, dentro de la imagen) -->
                     <button class="arrow right-arrow mobile-arrow" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
@@ -79,6 +82,8 @@
         <!-- Sección de bloques de información clickeables -->
         <section class="info-sections">
             <div class="info-block clickable" id="catalogo-completo-section">
+				<a href="catalogo.html">
+				</a>
                 <h3>Catálogo completo de productos</h3>
                 <p>Todos los productos de Panificadora Pacho's aquí</p>
             </div>
