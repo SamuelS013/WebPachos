@@ -1,0 +1,127 @@
+/* Importa las fuentes que ya estamos usando para consistencia */
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+/* --- Estilos específicos para la página de Ubicaciones --- */
+
+/* Contenido principal */
+.main-content {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Título de la sección principal */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #301711;
+    margin-bottom: 2rem;
+}
+
+/* Contenedor del grid de ubicaciones */
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Tarjeta de cada ubicación */
+.location-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.location-name {
+    font-family: 'Squada One', sans-serif;
+    font-size: 1.8rem;
+    color: #301711;
+    margin-bottom: 1rem;
+}
+
+.location-info p {
+    font-family: 'Inter', sans-serif;
+    color: #555;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.icon {
+    color: #301711;
+    font-size: 1.2rem;
+}
+
+.location-actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.map-link, .whatsapp-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.map-link {
+    background-color: #EE6427;
+    color: #fff;
+}
+
+.map-link:hover {
+    background-color: #D65A20;
+}
+
+.whatsapp-link {
+    background-color: #25D366;
+    color: #fff;
+}
+
+.whatsapp-link:hover {
+    background-color: #1DA851;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-content {
+        margin: 1rem auto;
+        padding: 0 0.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .location-card {
+        padding: 1.5rem;
+    }
+
+    .location-name {
+        font-size: 1.5rem;
+    }
+    
+    .map-link, .whatsapp-link {
+        font-size: 0.9rem;
+    }
+}
