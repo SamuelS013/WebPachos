@@ -1,0 +1,177 @@
+/* Importa las fuentes que ya estamos usando para consistencia */
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+/* --- Estilos específicos para la página de Emprendimiento --- */
+
+/* Contenido principal */
+.main-content {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+/* Títulos de las secciones */
+.section-title {
+    font-size: 2.5rem;
+    color: #301711;
+    margin-bottom: 2rem;
+}
+
+.section-subtitle {
+    font-family: 'Squada One', sans-serif;
+    font-size: 1.8rem;
+    color: #EE6427;
+    margin-bottom: 1.5rem;
+}
+
+/* Sección de Introducción */
+.intro-section p {
+    font-family: 'Inter', sans-serif;
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0.5rem auto 2rem;
+}
+
+/* Sección de Beneficios */
+.benefits-section {
+    margin-bottom: 3rem;
+}
+
+.benefits-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.benefit-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 2rem;
+    text-align: center;
+    max-width: 300px;
+    flex: 1 1 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    color: #EE6427;
+    margin-bottom: 1rem;
+}
+
+.benefit-card h4 {
+    font-family: 'Squada One', sans-serif;
+    font-size: 1.5rem;
+    color: #301711;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-card p {
+    font-family: 'Inter', sans-serif;
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Sección de Términos */
+.terms-section {
+    background-color: #f7f3e6;
+    padding: 2.5rem;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.terms-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.term-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    flex: 1 1 250px;
+}
+
+.term-item h5 {
+    font-family: 'Squada One', sans-serif;
+    font-size: 1.2rem;
+    color: #301711;
+    margin-bottom: 0.5rem;
+}
+
+.term-item p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.final-message {
+    font-size: 1rem;
+    color: #301711;
+    font-weight: bold;
+}
+
+/* Sección de Llamada a la Acción (CTA) */
+.cta-section {
+    margin-bottom: 3rem;
+}
+
+.whatsapp-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #25D366;
+    color: #fff;
+    font-family: 'Squada One', sans-serif;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.whatsapp-cta-btn:hover {
+    background-color: #1DA851;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .benefits-grid, .terms-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .benefits-grid {
+        gap: 1.5rem;
+    }
+
+    .benefit-card, .term-item {
+        max-width: 100%;
+        width: 100%;
+    }
+}

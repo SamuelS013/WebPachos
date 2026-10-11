@@ -1,0 +1,563 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playfair+Display:wght@700;800&display=swap');
+
+html {
+    overflow-x: clip;
+}
+
+:root {
+    --color-naranja: #ff7417;
+    --color-naranja-oscuro: #e85f08;
+    --color-crema: #fffaf1;
+    --color-blanco: #ffffff;
+    --color-texto: #17120f;
+    --color-texto-suave: #625b55;
+    --color-precio: #19772a;
+    --color-borde: #eadfd2;
+    --sombra-tarjeta: 0 16px 30px rgb(40 27 17 / 15%);
+    /* Reemplaza esta ruta por tu archivo para cambiar la foto del hero. */
+    --imagen-hero: url("img/palmeritas2.jpeg");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--color-blanco);
+}
+
+.main-header {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: var(--color-blanco);
+    color: var(--color-texto);
+    box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 30px;
+    color: var(--color-texto);
+}
+
+h2 {
+    margin: 30px 0 15px;
+    color: var(--color-texto);
+    font-size: 2rem;
+}
+
+.pagina-inicio,
+.pagina-inicio * {
+    box-sizing: border-box;
+}
+
+.pagina-inicio {
+    margin: 0;
+    min-width: 320px;
+    overflow-x: clip;
+    background: var(--color-crema);
+    color: var(--color-texto);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.pagina-inicio a {
+    color: inherit;
+}
+
+.pagina-inicio .main-header {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px clamp(20px, 5vw, 72px);
+    background: var(--color-blanco);
+    box-shadow: 0 4px 18px rgb(36 27 19 / 12%);
+}
+
+.pagina-inicio .brand-logo {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+}
+
+.pagina-inicio .brand-logo img {
+    display: block;
+    width: clamp(112px, 15vw, 164px);
+    max-height: 54px;
+    object-fit: contain;
+}
+
+.pagina-inicio .nav-container {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 3.5vw, 52px);
+}
+
+.pagina-inicio .nav-container a {
+    padding: 10px 0;
+    color: var(--color-texto);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 180ms ease;
+}
+
+.pagina-inicio .nav-container a:hover,
+.pagina-inicio .nav-container a:focus-visible {
+    color: var(--color-naranja-oscuro);
+}
+
+.pagina-inicio .boton-menu {
+    display: none;
+    width: 42px;
+    height: 42px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.pagina-inicio .boton-menu span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--color-texto);
+    transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.pagina-inicio .hero-container {
+    width: 100%;
+}
+
+.pagina-inicio .hero-background {
+    display: flex;
+    min-height: clamp(390px, 44vw, 600px);
+    align-items: center;
+    padding: clamp(32px, 8vw, 112px);
+    background-color: #ead8bf;
+    background-image:
+        linear-gradient(90deg, var(--color-crema) 0%, rgb(255 250 241 / 88%) 27%, rgb(255 250 241 / 22%) 67%, rgb(255 250 241 / 3%) 100%),
+        var(--imagen-hero);
+    background-position: center, 60% 45%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pagina-inicio .hero-texto {
+    width: min(100%, 650px);
+}
+
+.pagina-inicio .hero-title {
+    margin: 0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(2.5rem, 5.7vw, 5.1rem);
+    font-weight: 800;
+    line-height: 1.08;
+    text-transform: uppercase;
+}
+
+.pagina-inicio .hero-since {
+    margin: 14px 0 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.pagina-inicio .hero-lema {
+    margin: 0;
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(1.9rem, 3.5vw, 3.2rem);
+}
+
+.pagina-inicio .main-content {
+    display: flex;
+    width: min(100% - 40px, 1120px);
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 32px 0 72px;
+}
+
+.pagina-inicio .section-title {
+    margin: 0 0 24px;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    text-align: center;
+}
+
+.pagina-inicio .categories-container {
+    display: flex;
+    width: min(100%, 730px);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(12px, 3vw, 34px);
+    margin-bottom: 35px;
+}
+
+.pagina-inicio .categories-item {
+    display: flex;
+    min-width: 74px;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-texto);
+    cursor: pointer;
+}
+
+.pagina-inicio .categories-item-img {
+    width: 66px;
+    height: 66px;
+    border: 3px solid var(--color-blanco);
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 10px rgb(40 27 17 / 14%);
+    transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.pagina-inicio .categories-item-text {
+    font-size: 0.84rem;
+}
+
+.pagina-inicio .categories-item:hover .categories-item-img,
+.pagina-inicio .categories-item.activo .categories-item-img {
+    transform: translateY(-2px);
+    border-color: var(--color-naranja);
+}
+
+.pagina-inicio .productos-grid {
+    display: grid;
+    width: min(100%, 940px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 38px clamp(20px, 5vw, 64px);
+}
+
+.pagina-inicio .tarjeta-producto {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 0 18px 17px;
+    background: var(--color-blanco);
+    box-shadow: var(--sombra-tarjeta);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.pagina-inicio .tarjeta-producto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 38px rgb(40 27 17 / 19%);
+}
+
+.pagina-inicio .producto-imagen {
+    width: clamp(96px, 13vw, 150px);
+    height: clamp(96px, 13vw, 150px);
+    flex: 0 0 auto;
+    align-self: center;
+    margin-top: -24px;
+    border: 1px solid var(--color-borde);
+    border-radius: 50%;
+    background: var(--color-crema);
+    object-fit: cover;
+}
+
+.pagina-inicio .producto-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.pagina-inicio .producto-titulo {
+    margin: 0;
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    min-width: 0;
+}
+
+.pagina-inicio .like-section {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.pagina-inicio .boton-like {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #ff9b22;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 180ms ease, transform 180ms ease;
+}
+
+.pagina-inicio .boton-like[aria-pressed="true"] {
+    color: var(--color-naranja-oscuro);
+    transform: scale(1.15);
+}
+
+.pagina-inicio .producto-descripcion {
+    min-height: 3.8em;
+    margin: 4px 0 16px;
+    color: var(--color-texto-suave);
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.pagina-inicio .producto-pie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.pagina-inicio .precio-text {
+    color: var(--color-texto);
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+ .pagina-inicio .producto-precio-bs {
+    color: var(--color-precio);
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+ }
+
+.pagina-inicio .producto-precio {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.pagina-inicio .producto-precio span {
+    color: var(--color-precio);
+}
+
+.pagina-inicio .main-footer {
+    padding: 20px 10px;
+    background: var(--color-crema);
+    color: var(--color-texto);
+    border-top: 2px solid var(--color-naranja-oscuro);
+    text-align: center;
+}
+
+.pagina-inicio .footer-content h2 {
+    margin: 4px 0 12px;
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+.pagina-inicio .footer-content p {
+    margin: 9px 0;
+}
+
+.pagina-inicio .footer-etiqueta,
+.pagina-inicio .footer-copy {
+    color: var(--color-texto);
+    font-size: 0.9rem;
+}
+
+.pagina-inicio .footer-lema {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.6rem;
+}
+
+.pagina-inicio :focus-visible {
+    outline: 3px solid var(--color-naranja);
+    outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+    .pagina-inicio .main-header {
+        min-height: 66px;
+        padding: 8px 18px;
+    }
+
+    .pagina-inicio .brand-logo img {
+        width: 112px;
+        max-height: 46px;
+    }
+
+    .pagina-inicio .boton-menu {
+        display: flex;
+    }
+
+    .pagina-inicio .nav-container {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        display: flex;
+        width: min(82vw, 220px);
+        height: var(--altura-main, calc(100vh - 66px));
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 20px 18px;
+        background: var(--color-naranja);
+        box-shadow: -10px 12px 22px rgb(34 22 14 / 16%);
+        transform: translateX(105%);
+        transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 320ms;
+        visibility: hidden;
+    }
+
+    .pagina-inicio .nav-container.menu-abierto {
+        transform: translateX(0);
+        visibility: visible;
+        transition-delay: 0s;
+    }
+
+    .pagina-inicio .nav-container a {
+        padding: 15px 6px;
+        border-bottom: 1px solid rgb(255 255 255 / 62%);
+        color: var(--color-blanco);
+        font-size: 1rem;
+    }
+
+    .pagina-inicio .nav-container a:hover,
+    .pagina-inicio .nav-container a:focus-visible {
+        color: #4a2008;
+    }
+
+    .pagina-inicio .boton-menu[aria-expanded="true"] span:first-child {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .pagina-inicio .boton-menu[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .pagina-inicio .boton-menu[aria-expanded="true"] span:last-child {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .pagina-inicio .hero-background {
+        min-height: 360px;
+        padding: 38px 24px;
+        background-image:
+            linear-gradient(90deg, rgb(255 250 241 / 91%) 0%, rgb(255 250 241 / 74%) 48%, rgb(255 250 241 / 12%) 100%),
+            var(--imagen-hero);
+        background-position: center, 60% center;
+    }
+
+    .pagina-inicio .hero-texto {
+        width: 88%;
+    }
+
+    .pagina-inicio .hero-title {
+        font-size: clamp(2.1rem, 9vw, 3.4rem);
+    }
+
+    .pagina-inicio .hero-since {
+        margin: 10px 0 20px;
+        text-align: left;
+    }
+
+    .pagina-inicio .hero-lema {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+    }
+
+    .pagina-inicio .main-content {
+        width: calc(100% - 32px);
+        padding: 28px 0 58px;
+    }
+
+    .pagina-inicio .categories-container {
+        gap: 14px;
+        margin-bottom: 28px;
+    }
+
+    .pagina-inicio .categories-item-img {
+        width: 54px;
+        height: 54px;
+    }
+
+    .pagina-inicio .categories-item-text {
+        font-size: 0.76rem;
+    }
+
+    .pagina-inicio .productos-grid {
+        gap: 32px 14px;
+    }
+
+    .pagina-inicio .tarjeta-producto {
+        padding: 0 12px 13px;
+    }
+
+    .pagina-inicio .producto-imagen {
+        width: clamp(74px, 24vw, 112px);
+        height: clamp(74px, 24vw, 112px);
+        margin-top: -19px;
+    }
+
+    .pagina-inicio .producto-titulo {
+        font-size: clamp(0.92rem, 4vw, 1.1rem);
+    }
+    
+    .pagina-inicio .like-section {
+        font-size: 1rem;
+    }
+
+    .pagina-inicio .producto-descripcion {
+        min-height: 4.4em;
+        font-size: 0.79rem;
+    }
+
+    .pagina-inicio .producto-pie {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .pagina-inicio .producto-precio-bs {
+        font-size: 0.9rem;
+    }
+
+    .pagina-inicio .producto-precio {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .pagina-inicio .productos-grid {
+        gap: 28px 10px;
+    }
+
+    .pagina-inicio .tarjeta-producto {
+        padding-right: 9px;
+        padding-left: 9px;
+    }
+
+    .pagina-inicio .producto-descripcion {
+        font-size: 0.74rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pagina-inicio *,
+    .pagina-inicio *::before,
+    .pagina-inicio *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
