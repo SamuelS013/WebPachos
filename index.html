@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ff7417">
+    <title>Panificadora Pacho's</title>
+    <link rel="icon" href="css/icon/icono-pachos.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="pagina-inicio">
+    <header class="main-header">
+        <a class="brand-logo" href="index.html" data-vista="inicio" aria-label="Panificadora Pacho's, inicio">
+            <img src="css/img/logo-pachos.png" alt="Panificadora Pacho's">
+        </a>
+        <button class="boton-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-container" id="menu-principal" aria-label="Navegación principal">
+            <a href="index.html" data-vista="inicio">Inicio</a>
+            <a href="ubicacion.html" data-vista="ubicacion">Ubicación</a>
+            <a href="emprende.html" data-vista="emprende">Emprende</a>
+            <a href="#contactos">Contáctanos</a>
+            <a href="#sobre-nosotros">Sobre nosotros</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="contenido-vista" data-vista-actual="inicio" aria-live="polite">
+            <section class="hero-container" aria-labelledby="titulo-hero">
+                <div class="hero-background">
+                    <div class="hero-texto">
+                        <h1 class="hero-title" id="titulo-hero">Panificadora Pachos</h1>
+                        <p class="hero-since">Desde 2020</p>
+                        <p class="hero-lema">"Del horno a tu corazón"</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="main-content" aria-labelledby="titulo-productos">
+                <h2 class="section-title" id="titulo-productos">Productos disponibles</h2>
+
+                <div class="categories-container" aria-label="Filtrar productos por categoría">
+                    <button class="categories-item activo" type="button" data-category="todos" aria-pressed="true">
+                        <img src="css/img/pan-dulce.jpeg" class="categories-item-img" alt="">
+                        <span class="categories-item-text">Todos</span>
+                    </button>
+                    <button class="categories-item" type="button" data-category="panes" aria-pressed="false">
+                        <img src="css/img/pan-salado.jpeg" class="categories-item-img" alt="">
+                        <span class="categories-item-text">Panes</span>
+                    </button>
+                    <button class="categories-item" type="button" data-category="reposteria" aria-pressed="false">
+                        <img src="css/img/torta-marmoleada.png" class="categories-item-img" alt="">
+                        <span class="categories-item-text">Repostería</span>
+                    </button>
+                </div>
+
+                <div class="productos-grid" id="productos-grid" aria-live="polite"></div>
+            </section>
+        </div>
+    </main>
+
+    <template id="plantilla-producto">
+        <article class="tarjeta-producto product-card">
+            <img class="producto-imagen product-image" src="" alt="" loading="lazy">
+            <div class="producto-cabecera">
+                <h3 class="producto-titulo product-name"></h3>
+                <div class="like-section">
+                    <button class="boton-like" type="button" aria-pressed="false" aria-label="Like">
+                    <i class="fa-regular fa-star" style="color: rgb(0, 0, 0);"></i>
+                    </button>
+                    <span class="contador-likes">0</span>
+                </div>
+            </div>
+            <p class="producto-descripcion product-description"></p>
+            <div class="producto-pie">
+                <p class="precio-text">Precio: <span class="producto-precio-bs product-price-bs"></span></p>
+                <p class="producto-precio product-price">Ref: <span></span></p>
+                
+            </div>
+        </article>
+    </template>
+
+    <footer class="main-footer" id="contactos">
+        <div class="footer-content" id="sobre-nosotros">
+            <p class="footer-etiqueta">Visítanos</p>
+            <p id="ubicacion">Sector "El Tendal" - Pampán</p>
+            <p class="footer-lema">"Del horno a tu corazón"</p>
+            <p class="footer-copy">&copy; 2026 Panificadora Pachos.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
