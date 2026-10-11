@@ -2,126 +2,176 @@
 @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
-/* --- Estilos específicos para la página de Ubicaciones --- */
+:root {
+    --color-naranja: #ff7417;
+    --color-naranja-oscuro: #e85f08;
+    --color-crema: #fffaf1;
+    --color-blanco: #ffffff;
+    --color-texto: #17120f;
+    --color-texto-suave: #625b55;
+    --color-precio: #19772a;
+    --color-borde: #eadfd2;
+    --sombra-tarjeta: 0 16px 30px rgb(40 27 17 / 15%);
+}
 
-/* Contenido principal */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    font-size: 16px;
+}
+
 .main-content {
     max-width: 1000px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-/* Título de la sección principal */
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #301711;
-    margin-bottom: 2rem;
-}
-
-/* Contenedor del grid de ubicaciones */
-.location-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-/* Tarjeta de cada ubicación */
-.location-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    padding: 2rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.location-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
-.location-name {
-    font-family: 'Squada One', sans-serif;
-    font-size: 1.8rem;
-    color: #301711;
-    margin-bottom: 1rem;
-}
-
-.location-info p {
-    font-family: 'Inter', sans-serif;
-    color: #555;
-    margin: 0.5rem 0;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.icon {
-    color: #301711;
-    font-size: 1.2rem;
-}
-
-.location-actions {
-    margin-top: 2rem;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-}
-
-.map-link, .whatsapp-link {
-    display: flex;
     align-items: center;
+}
+
+.sub-header {
+    background: var(--color-naranja);
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+    height: auto;
+    max-height: 500px;
+    margin: auto;
+    padding: 0;
+    border-radius: 0 0 50px 50px;
+    display: flex;
     justify-content: center;
-    gap: 0.5rem;
-    padding: 0.8rem;
-    border-radius: 5px;
-    text-decoration: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.sub-header-text{
+    color: var(--color-blanco);
+    font-size: 2rem;
+}
+
+.fa-solid {
+    color: var(--color-blanco);
+    font-size: 1rem;
+}
+
+.direccion-card {
+    background: var(--color-blanco);
+    width: 90%;
+    max-width: 700px;
+    padding: 40px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    box-shadow: var(--sombra-tarjeta);
+}
+
+.direccion-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.direccion {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.direccion-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal;
     font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
 }
 
-.map-link {
-    background-color: #EE6427;
-    color: #fff;
+.horario-container {
+    width: 100%;
+    padding-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px dashed var(--color-naranja-oscuro);
 }
 
-.map-link:hover {
-    background-color: #D65A20;
+.fa-clokc, .horario {
+    font-family: sans-serif;
+    font-style: normal;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--color-texto-suave);
 }
 
-.whatsapp-link {
-    background-color: #25D366;
-    color: #fff;
+.direccion-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.6;
+    color: var(--color-texto);
+    margin: 40px 0;
 }
 
-.whatsapp-link:hover {
-    background-color: #1DA851;
+.direccion-text span {
+    color: var(--color-texto-suave);
+}
+
+.mapa-contenedor, iframe {
+    width: 100%;
+    height: 500px;
+}
+
+.boton-maps {
+    background: var(--color-naranja);
+    color: var(--color-blanco);
+    font-weight: bold;
+    width: 10rem;
+    padding: 10px;
+    margin: none;
+    margin: 0;
+    margin-top: 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.boton-maps:hover {
+    background: var(--color-naranja-oscuro);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .main-content {
-        margin: 1rem auto;
-        padding: 0 0.5rem;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-    }
 
-    .location-card {
-        padding: 1.5rem;
-    }
+   .sub-header-text {
+    font-size: 1.2rem;
+   }
 
-    .location-name {
-        font-size: 1.5rem;
-    }
-    
-    .map-link, .whatsapp-link {
-        font-size: 0.9rem;
-    }
+   .fa-solid {
+    font-size: 0.6rem;
+   }
+
+   .direccion-card {
+    padding: 25px;
+   }
+
+   .direccion-text {
+    margin: 25px 0;
+   }
+
+   .mapa-contenedor, iframe {
+    height: 300px;
+   }
 }

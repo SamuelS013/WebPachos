@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Completo - Panificadora Pacho's</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="css/img/favicon.ico" type="image/x-icon">
+    <!-- Enlace al CSS principal para reutilizar estilos del header y footer -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Enlace al nuevo CSS específico para el catálogo -->
+    <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="css/img/logo-pachos.png" alt="Logo" class="logo-img">
+                <span class="logo-text">Panificadora<br>Pacho's</span>
+            </div>
+            <div class="header-right-section">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/panificadorapachos?igsh=MWx5c3h6djg4aTEzeQ==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/+584140770512" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Página Principal</a></li>
+                        <li><a href="ubicacion.html">Puntos de venta</a></li>
+                        <li><a href="emprende.html">Emprende con nosotros</a></li>
+                        <li><a href="https://wa.me/+584140770512">Contáctanos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h2 class="section-title">Catálogo de Productos</h2>
+
+        <!-- Menú de categorías con iconos -->
+        <div class="category-menu">
+            <button class="category-icon active" type="button" data-category="all" aria-pressed="true">
+                <span class="icon">📜</span>
+                <span class="text">Todos</span>
+            </button>
+            <button class="category-icon" type="button" data-category="panes" aria-pressed="false">
+                <span class="icon">🍞</span>
+                <span class="text">Panes</span>
+            </button>
+            <button class="category-icon" type="button" data-category="reposteria" aria-pressed="false">
+                <span class="icon">🍰</span>
+                <span class="text">Repostería</span>
+            </button>
+            <button class="category-icon" type="button" data-category="integral" aria-pressed="false">
+                <span class="icon">🌾</span>
+                <span class="text">Integral</span>
+            </button>
+            <button class="category-icon" type="button" data-category="bebidas" aria-pressed="false">
+                <span class="icon">🥤</span>
+                <span class="text">Bebidas</span>
+            </button>
+        </div>
+
+        <!-- Lista de productos -->
+        <div class="product-grid" id="product-container">
+            <!-- Los productos se cargarán aquí dinámicamente con JavaScript -->
+        </div>
+
+    </main>
+
+    <template id="plantilla-producto">
+        <article class="tarjeta-producto product-card">
+            <img class="producto-imagen product-image" src="" alt="" loading="lazy">
+            <div class="producto-cabecera">
+                <h3 class="producto-titulo product-name"></h3>
+                <button class="boton-favorito" type="button" aria-label="Agregar a favoritos" aria-pressed="false">
+                    <span aria-hidden="true">♥</span>
+                </button>
+            </div>
+            <p class="producto-descripcion product-description"></p>
+            <div class="producto-pie">
+                <p class="producto-precio product-price"></p>
+                <a class="boton-pedido" href="#" target="_blank" rel="noopener noreferrer">
+                    <span>Ordenar</span>
+                    <span class="icono-whatsapp" aria-hidden="true">◉</span>
+                </a>
+            </div>
+        </article>
+    </template>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <h1>Horario:</h1>
+            <p>Lunes a Sábado: 7 AM - 7 PM</p>
+            <h1>Ubicación:</h1>
+            <p>Pampán, Trujillo - Venezuela</p>
+            <h1>"Del horno a tu corazón"</h1>
+            <p>&copy; 2025 Panadería Pachos.</p>
+        </div>
+    </footer>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -3,8 +3,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
 /* --- Estilos específicos para la página de Emprendimiento --- */
+body {
+    font-size: 16px;
+}
 
-/* Contenido principal */
+.principal{
+    background: #fff;
+    width: 100%;
+    height: auto;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+div img {
+    width: 300px;
+    height: auto;
+}
+
+.principal h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+
+    .principal {
+        height: 100vh;
+    }
+
+    .principal img {
+        width: 100px;
+        height: auto;
+    }
+
+    .principal h2 {
+        font-size: 1rem;
+    }
+}
+
+/* Contenido principal 
 .main-content {
     max-width: 1000px;
     margin: 2rem auto;
@@ -12,7 +53,6 @@
     text-align: center;
 }
 
-/* Títulos de las secciones */
 .section-title {
     font-size: 2.5rem;
     color: #301711;
@@ -26,7 +66,6 @@
     margin-bottom: 1.5rem;
 }
 
-/* Sección de Introducción */
 .intro-section p {
     font-family: 'Inter', sans-serif;
     color: #555;
@@ -36,7 +75,6 @@
     margin: 0.5rem auto 2rem;
 }
 
-/* Sección de Beneficios */
 .benefits-section {
     margin-bottom: 3rem;
 }
@@ -84,7 +122,6 @@
     line-height: 1.5;
 }
 
-/* Sección de Términos */
 .terms-section {
     background-color: #f7f3e6;
     padding: 2.5rem;
@@ -129,7 +166,6 @@
     font-weight: bold;
 }
 
-/* Sección de Llamada a la Acción (CTA) */
 .cta-section {
     margin-bottom: 3rem;
 }
@@ -154,8 +190,7 @@
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
-
-/* Responsive Design */
+Responsive Design 
 @media (max-width: 768px) {
     .section-title {
         font-size: 2rem;
@@ -175,3 +210,4 @@
         width: 100%;
     }
 }
+*/
