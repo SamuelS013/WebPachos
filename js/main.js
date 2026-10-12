@@ -67,6 +67,13 @@ function configurarVistas(cerrarMenu) {
         return;
     }
 
+    const pieInicio = document.querySelector("footer");
+    if (!pieInicio) {
+        throw new Error("La página de inicio debe incluir un elemento footer.");
+    }
+
+    const pieInicioOriginal = pieInicio.cloneNode(true);
+    let pieActual = pieInicio;
     const contenidoInicio = contenedor.innerHTML;
     let vistaActual = "inicio";
     let hojaDeEstilos = null;
@@ -121,6 +128,7 @@ function configurarVistas(cerrarMenu) {
             let nuevoContenido = contenidoInicio;
             let nuevoTitulo = tituloInicio;
             let nuevaHoja = null;
+            let nuevoPie = pieInicioOriginal.cloneNode(true);
 
             if (rutas[vista]) {
                 const respuesta = await fetch(rutas[vista].archivo);
@@ -134,6 +142,10 @@ function configurarVistas(cerrarMenu) {
                 if (!mainFuente) {
                     throw new Error(`El archivo ${rutas[vista].archivo} no contiene un elemento main.`);
                 }
+                const pieFuente = documento.querySelector("footer");
+                if (!pieFuente) {
+                    throw new Error(`El archivo ${rutas[vista].archivo} no contiene un elemento footer.`);
+                }
 
                 nuevaHoja = await cargarEstilos(rutas[vista]);
                 if (solicitud !== solicitudActual) {
@@ -142,9 +154,12 @@ function configurarVistas(cerrarMenu) {
                 }
                 nuevoContenido = mainFuente.innerHTML;
                 nuevoTitulo = documento.title || tituloInicio;
+                nuevoPie = pieFuente.cloneNode(true);
             }
 
             contenedor.innerHTML = nuevoContenido;
+            pieActual.replaceWith(nuevoPie);
+            pieActual = nuevoPie;
             contenedor.dataset.vistaActual = vista;
             if (hojaDeEstilos && hojaDeEstilos !== nuevaHoja) hojaDeEstilos.remove();
             hojaDeEstilos = nuevaHoja;

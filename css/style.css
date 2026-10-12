@@ -114,9 +114,14 @@ h2 {
     transition: color 180ms ease;
 }
 
-.pagina-inicio .nav-container a:hover,
 .pagina-inicio .nav-container a:focus-visible {
     color: var(--color-naranja-oscuro);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .pagina-inicio .nav-container a:hover {
+        color: var(--color-naranja-oscuro);
+    }
 }
 
 .pagina-inicio .boton-menu {
@@ -130,6 +135,7 @@ h2 {
     border: 0;
     background: transparent;
     cursor: pointer;
+    transition: transform 120ms ease;
 }
 
 .pagina-inicio .boton-menu span {
@@ -237,10 +243,16 @@ h2 {
     font-size: 0.84rem;
 }
 
-.pagina-inicio .categories-item:hover .categories-item-img,
 .pagina-inicio .categories-item.activo .categories-item-img {
     transform: translateY(-2px);
     border-color: var(--color-naranja);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .pagina-inicio .categories-item:hover .categories-item-img {
+        transform: translateY(-2px);
+        border-color: var(--color-naranja);
+    }
 }
 
 .pagina-inicio .productos-grid {
@@ -260,11 +272,6 @@ h2 {
     background: var(--color-blanco);
     box-shadow: var(--sombra-tarjeta);
     transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.pagina-inicio .tarjeta-producto:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 38px rgb(40 27 17 / 19%);
 }
 
 .pagina-inicio .producto-imagen {
@@ -356,7 +363,7 @@ h2 {
     color: var(--color-precio);
 }
 
-.pagina-inicio .main-footer {
+.main-footer {
     padding: 20px 10px;
     background: var(--color-crema);
     color: var(--color-texto);
@@ -364,24 +371,54 @@ h2 {
     text-align: center;
 }
 
-.pagina-inicio .footer-content h2 {
+.footer-content h2 {
     margin: 4px 0 12px;
     font-family: "Playfair Display", Georgia, serif;
 }
 
-.pagina-inicio .footer-content p {
+.footer-content p {
     margin: 9px 0;
 }
 
-.pagina-inicio .footer-etiqueta,
-.pagina-inicio .footer-copy {
+.footer-etiqueta,
+.footer-copy {
     color: var(--color-texto);
     font-size: 0.9rem;
 }
 
-.pagina-inicio .footer-lema {
+.footer-lema {
     font-family: "Dancing Script", cursive;
     font-size: 1.6rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .pagina-inicio .tarjeta-producto:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 38px rgb(40 27 17 / 19%);
+    }
+}
+
+@media (hover: none) {
+    .pagina-inicio .nav-container a:active {
+        color: #4a2008;
+        transition: color 120ms ease;
+    }
+
+    .pagina-inicio .categories-item:active .categories-item-img {
+        transform: translateY(-2px) scale(0.96);
+        border-color: var(--color-naranja);
+        transition: border-color 120ms ease, transform 120ms ease;
+    }
+
+    .pagina-inicio .tarjeta-producto:active {
+        transform: translateY(-2px) scale(0.99);
+        box-shadow: 0 10px 22px rgb(40 27 17 / 18%);
+    }
+
+    .pagina-inicio .boton-menu:active,
+    .pagina-inicio .boton-like:active {
+        transform: scale(0.92);
+    }
 }
 
 .pagina-inicio :focus-visible {
@@ -435,7 +472,6 @@ h2 {
         font-size: 1rem;
     }
 
-    .pagina-inicio .nav-container a:hover,
     .pagina-inicio .nav-container a:focus-visible {
         color: #4a2008;
     }

@@ -146,10 +146,20 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    transition: background-color 150ms ease, transform 150ms ease;
 }
 
-.boton-maps:hover {
-    background: var(--color-naranja-oscuro);
+@media (hover: hover) and (pointer: fine) {
+    .boton-maps:hover {
+        background: var(--color-naranja-oscuro);
+    }
+}
+
+@media (hover: none) {
+    .boton-maps:active {
+        background: var(--color-naranja-oscuro);
+        transform: scale(0.96);
+    }
 }
 
 /* Responsive Design */
@@ -169,6 +179,10 @@ body {
 
    .direccion-text {
     margin: 25px 0;
+   }
+
+   .direccion-text span {
+    font-size: 0.9rem;
    }
 
    .mapa-contenedor, iframe {
