@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre nosotros - Panificadora Pacho's</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    <!-- Enlace al CSS principal para reutilizar estilos del header y footer -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Enlace al CSS específico para la página de sobre nosotros -->
+    <link rel="stylesheet" href="css/sobre-nosotros.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="img/logo-pachos.png" alt="Logo" class="logo-img">
+                <span class="logo-text">Panificadora<br>Pacho's</span>
+            </div>
+            <div class="header-right-section">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/panificadorapachos?igsh=MWx5c3h6djg4aTEzeQ==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/+584140770512" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Página Principal</a></li>
+                        <li><a href="catalogo.html">Catálogo completo de productos</a></li>
+                        <li><a href="emprende.html">Emprende con nosotros</a></li>
+                        <li><a href="ubicacion.html">Puntos de venta</a></li>
+                        <li><a href="#contactos" data-abrir-contactos aria-haspopup="dialog">Contáctanos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+         <div class="sub-header">
+            <h2 class="sub-header-text">Sobre Nosotros</h2>
+        </div>
+        <div class="contenido-card">
+            <h3 class="title">Panificadora Pacho's</h3>
+            <p>Somos una panadería que nace en el centro de Pampán con raíces profundas. Nuestra historia comienza en 2020, de parte de una familia que bajo las circunstacias que el país atravesaba, pero aún así seguimos hacía adelante.
+                <br>En Pachos nos tomamos la libertad de experimentar con recetas y rescatar sabores tradicionales que nos permita entregarte un producto original y diferente que no encontrarás en ningún otro lado.
+                <br>Nuestro compromiso es simple: ofrecerte un producto de calidad, hecho con dedicación. Hemos crecido gracias a nuestros clientes, quienes han confiado en nosotros y sido parte de esto desde el primer día.
+                <br><strong>Gracias por preferirnos.</strong>
+            </p>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p class="footer-etiqueta">Visítanos</p>
+            <p class="footer-lema">"Del horno a tu corazón"</p>
+            <p class="footer-copy">&copy; 2026 Panificadora Pachos.</p>
+        </div>
+    </footer>
+    <dialog class="contactos-dialog" id="dialogo-contactos" aria-labelledby="titulo-contactos">
+        <button class="contactos-dialog-cerrar" type="button" data-cerrar-contactos aria-label="Cerrar contactos">&times;</button>
+        <h2 id="titulo-contactos">Contáctanos</h2>
+        <p><a href="https://wa.me/584140770512" target="_blank" rel="noopener noreferrer">WhatsApp: +58 414-0770512</a></p>
+        <p><a href="https://wa.me/584261351097" target="_blank" rel="noopener noreferrer">WhatsApp: +58 426-1351097</a></p>   
+    </dialog>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

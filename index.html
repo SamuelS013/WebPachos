@@ -23,8 +23,8 @@
             <a href="index.html" data-vista="inicio">Inicio</a>
             <a href="ubicacion.html" data-vista="ubicacion">Ubicación</a>
             <a href="emprende.html" data-vista="emprende">Emprende</a>
-            <a href="#contactos">Contáctanos</a>
-            <a href="#sobre-nosotros">Sobre nosotros</a>
+            <a href="#contactos" data-abrir-contactos aria-haspopup="dialog">Contáctanos</a>
+            <a href="sobre-nosotros.html" data-vista="sobre-nosotros">Sobre nosotros</a>
         </nav>
     </header>
 
@@ -84,14 +84,21 @@
         </article>
     </template>
 
-    <footer class="main-footer" id="contactos">
-        <div class="footer-content" id="sobre-nosotros">
+    <footer class="main-footer">
+        <div class="footer-content">
             <p class="footer-etiqueta">Visítanos</p>
             <p id="ubicacion">Sector "El Tendal" - Pampán</p>
             <p class="footer-lema">"Del horno a tu corazón"</p>
             <p class="footer-copy">&copy; 2026 Panificadora Pachos.</p>
         </div>
     </footer>
+
+    <dialog class="contactos-dialog" id="dialogo-contactos" aria-labelledby="titulo-contactos">
+        <button class="contactos-dialog-cerrar" type="button" data-cerrar-contactos aria-label="Cerrar contactos">&times;</button>
+        <h2 id="titulo-contactos">Contáctanos</h2>
+        <p><a href="https://wa.me/584140770512" target="_blank" rel="noopener noreferrer">WhatsApp: +58 414-0770512</a></p>
+        <p><a href="https://wa.me/584261351097" target="_blank" rel="noopener noreferrer">WhatsApp: +58 426-1351097</a></p>
+    </dialog>
 
     <script type="module" src="js/main.js"></script>
 </body>

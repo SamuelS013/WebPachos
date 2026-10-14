@@ -29,7 +29,8 @@
                         <li><a href="index.html">Página Principal</a></li>
                         <li><a href="catalogo.html">Catálogo completo de productos</a></li>
                         <li><a href="ubicacion.html">Puntos de venta</a></li>
-                        <li><a href="https://wa.me/+584140770512">Contáctanos</a></li>
+                        <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+                        <li><a href="#contactos" data-abrir-contactos aria-haspopup="dialog">Contáctanos</a></li>
                     </ul>
                 </div>
             </div>
@@ -37,13 +38,68 @@
     </header>
 
     <main class="main-content">
-        <div class="principal">
-            <img src="css/img/pachos-construccion.jpg" alt="Pagina en Contruccción">
-            <h2>Página en construcción</h2>
+        <div class="sub-header">
+            <h2 class="sub-header-text">Únete a nuestra Familia de Emprendedores</h2>
         </div>
+        
+        <section class="intro-section">
+            <div class="page-icon">
+                    <img src="css/img/pachos-emprendedores.jpg">
+                </div>
+            <div class="intro-card">
+                <p>En Panificadora Pacho's, no solo horneamos el mejor pan, también horneamos sueños.</p>
+                <p>Te invitamos a formar parte de nuestra red de distribuidores y llevar la calidad de nuestros productos a tu comunidad.</p>
+                <p>Descubre los beneficios y cómo empezar hoy mismo.</p>
+                <a href="https://wa.me/+584140770512?text=Hola,%20estoy%20interesado%20en%20los%20productos%20a%20precio%20de%20mayorista." target="_blank" class="whatsapp-cta-btn">
+                    <button type="button" class="contacto-boton">
+                        <i class="fab fa-whatsapp"></i>
+                        <p>Contactar por WhatsApp</p>
+                    </button>
+                </a>
+            </div>
+            
+        </section>
+
+        <section class="beneficios-container">
+            <div class="beneficio-card">
+                <div class="beneficio-icon"><i class="fas fa-star"></i></div>
+                <h4 class="beneficio-title">Productos de calidad</h4>
+                <p class="beneficio-text">Ofrecemos productos de alta calidad elaborados con la mejor materia prima.</p>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icon"><i class="fas fa-handshake"></i></div>
+                <h4>Beneficio de Mayorista</h4>
+                <p>Compra a precio de distribuidor, sin mínimos excesivos. Maximiza tus ganancias desde el día uno.</p>
+            </div>
+            <div class="beneficio-card">
+                <div class="beneficio-icon"><i class="fas fa-clock"></i></div>
+                <h4>Flexibilidad de Pago</h4>
+                <p>Adaptamos nuestros plazos de pago y condiciones para que puedas gestionar tu negocio de forma cómoda y sin presiones.</p>
+            </div>
+        </section>
+
+        <section class="contacto-section">
+            <h3>Contáctanos para tener más información</h3>
+            <a href="https://wa.me/+584140770512?text=Hola,%20estoy%20interesado%20en%20los%20productos%20a%20precio%20de%20mayorista." target="_blank" class="whatsapp-cta-btn">
+                <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+            </a>
+        </section>
     </main>
-    <footer>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p class="footer-etiqueta">Visítanos</p>
+            <p id="ubicacion">Sector "El Tendal" - Pampán</p>
+            <p class="footer-lema">"Del horno a tu corazón"</p>
+            <p class="footer-copy">&copy; 2026 Panificadora Pachos.</p>
+        </div>
     </footer>
+    <dialog class="contactos-dialog" id="dialogo-contactos" aria-labelledby="titulo-contactos">
+        <button class="contactos-dialog-cerrar" type="button" data-cerrar-contactos aria-label="Cerrar contactos">&times;</button>
+        <h2 id="titulo-contactos">Contáctanos</h2>
+        <p><a href="https://wa.me/584140770512" target="_blank" rel="noopener noreferrer">WhatsApp: +58 414-0770512</a></p>
+        <p><a href="https://wa.me/584261351097" target="_blank" rel="noopener noreferrer">WhatsApp: +58 426-1351097</a></p>
+    </dialog>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

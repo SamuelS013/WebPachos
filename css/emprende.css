@@ -2,46 +2,230 @@
 @import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 
-/* --- Estilos específicos para la página de Emprendimiento --- */
-body {
-    font-size: 16px;
+
+:root {
+    --color-naranja: #ff7417;
+    --color-naranja-oscuro: #e85f08;
+    --color-crema: #fffaf1;
+    --color-blanco: #ffffff;
+    --color-texto: #17120f;
+    --color-texto-suave: #625b55;
+    --color-precio: #19772a;
+    --color-borde: #eadfd2;
+    --sombra-tarjeta: 0 16px 30px rgb(40 27 17 / 15%);
 }
 
-.principal{
-    background: #fff;
-    width: 100%;
-    height: auto;
-    padding: 60px 0;
+body {
+    font-size: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+
+.main-content {
+    max-width: 1000px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub-header {
+    background: var(--color-naranja);
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+    height: auto;
+    max-height: 500px;
+    margin: auto;
+    padding: 0;
+    border-radius: 0 0 50px 50px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.sub-header-text {
+    color: var(--color-blanco);
+    font-size: 1.6rem;
+}
+
+.intro-section {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.page-icon {
+    background: var(--color-blanco);
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+    border-radius: 100%;
+    border: 1px solid var(--color-borde);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.page-icon img {
+    width: 100px;
+    height: 100px;
+}
+
+.intro-card {
+    background: var(--color-blanco);
+    width: 90%;
+    max-width: 700px;
+    height: auto;
+    padding: 30px;
+    padding-top: 120px;
+    margin: auto;
+    margin-top: 50px;
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    box-shadow: var(--sombra-tarjeta);
+}
+
+.intro-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.intro-card p {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-texto);
+    line-height: 1.5;
+}
+
+
+.intro-card a {
+    text-decoration: none;
+    font-size: 0.6rem;
+}
+
+.contacto-boton {
+    background: var(--color-naranja);
+    padding: 8px;
+    margin: 0;
+    border: none;
+    border-radius: 8px;
+}
+
+.contacto-boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.contacto-boton p {
+    font-size: 0.9rem;
+    color: var(--color-blanco);
+}
+
+.contacto-boton i {
+    color: var(--color-blanco);
+    font-size: 1rem;
+}
+
+
+
+
+.beneficios-container {
+    width: 100%;
+    height: auto;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     gap: 20px;
 }
 
-div img {
-    width: 300px;
-    height: auto;
+.beneficio-card {
+    background: var(--color-blanco);
+    color: var(--color-texto);
+    width: 90%;
+    max-width: 700px;
+    padding: 30px;
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    box-shadow: var(--sombra-tarjeta);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
 }
 
-.principal h2 {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1.5rem;
+.beneficio-card {
+    text-align: center;
+    text-justify: center;
+}
+
+.beneficio-icon {
+    font-size: 2rem;
+    color: var(--color-texto);
+}
+
+.contacto-section {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.main-footer {
+    width: 100%;
+    padding: 20px 10px;
+    background: var(--color-crema);
+    color: var(--color-texto);
+    border-top: 2px solid var(--color-naranja-oscuro);
+    text-align: center;
+}
+
+.footer-content h2 {
+    margin: 4px 0 12px;
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+.footer-content p {
+    margin: 9px 0;
+}
+
+.footer-etiqueta,
+.footer-copy {
+    color: var(--color-texto);
+    font-size: 0.9rem;
+}
+
+.footer-lema {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.6rem;
 }
 
 @media (max-width: 768px) {
 
-    .principal {
-        height: 100vh;
-    }
-
-    .principal img {
-        width: 100px;
-        height: auto;
-    }
-
-    .principal h2 {
-        font-size: 1rem;
+    body {
+        font-size: 16px;
     }
 }
 

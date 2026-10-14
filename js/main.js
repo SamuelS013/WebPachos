@@ -3,8 +3,30 @@ import { inicializarProductos } from "./productos.js";
 const rutas = {
     inicio: null,
     ubicacion: { archivo: "ubicacion.html", estilos: "css/ubicacion.css" },
-    emprende: { archivo: "emprende.html", estilos: "css/emprende.css" }
+    emprende: { archivo: "emprende.html", estilos: "css/emprende.css" },
+    "sobre-nosotros": { archivo: "sobre-nosotros.html", estilos: "css/sobre-nosotros.css" }
 };
+
+function configurarContactos() {
+    const dialogo = document.querySelector("#dialogo-contactos");
+    if (!(dialogo instanceof HTMLDialogElement)) {
+        throw new Error("La página debe incluir el diálogo de contactos.");
+    }
+
+    document.addEventListener("click", (evento) => {
+        const elemento = evento.target;
+        if (!(elemento instanceof Element)) return;
+
+        if (elemento.closest("[data-abrir-contactos]")) {
+            evento.preventDefault();
+            if (!dialogo.open) dialogo.showModal();
+        } else if (elemento.closest("[data-cerrar-contactos]")) {
+            dialogo.close();
+        } else if (elemento === dialogo) {
+            dialogo.close();
+        }
+    });
+}
 
 function configurarMenu() {
     const boton = document.querySelector(".boton-menu");
@@ -206,4 +228,5 @@ function configurarVistas(cerrarMenu) {
     }
 }
 
+configurarContactos();
 configurarVistas(configurarMenu());
