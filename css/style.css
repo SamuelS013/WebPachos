@@ -407,8 +407,11 @@ h2 {
     position: fixed;
     inset: 0;
     width: min(calc(100% - 32px), 440px);
+    box-sizing: border-box;
     max-width: none;
     max-height: min(100vh, 520px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     margin: auto;
     padding: 32px;
     border: 1px solid var(--color-borde);
@@ -462,6 +465,7 @@ h2 {
 .modal-contacto-boton a {
     color: var(--color-texto);
     text-decoration: none;
+    overflow-wrap: anywhere;
 }
 
 .modal-contacto-boton span {
@@ -508,6 +512,40 @@ h2 {
     font-size: 1.8rem;
     line-height: 1;
     cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .contactos-dialog {
+        width: min(calc(100vw - 24px), 440px);
+        max-height: calc(100vh - 24px);
+        max-height: calc(100dvh - 24px);
+        padding: 22px 16px 18px;
+    }
+
+    .contactos-dialog[open] {
+        justify-content: flex-start;
+        gap: 14px;
+    }
+
+    .contactos-dialog h2 {
+        margin: 18px 28px 4px;
+        font-size: clamp(1.15rem, 5vw, 1.5rem);
+    }
+
+    .modal-contacto-boton {
+        min-width: 0;
+        font-size: clamp(1rem, 4.5vw, 1.2rem);
+    }
+
+    .modal-contacto-boton p,
+    .modal-contacto-boton a {
+        max-width: 100%;
+    }
+
+    .contactos-dialog-cerrar {
+        top: 6px;
+        right: 6px;
+    }
 }
 
 .footer-content h2 {
