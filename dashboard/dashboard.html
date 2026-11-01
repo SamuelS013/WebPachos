@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fffaf1">
+    <title>Disponibilidad de productos | Panificadora Pacho's</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script type="module" src="dashboard.js"></script>
+</head>
+<body>
+    <main class="panel">
+        <section class="panel-heading" aria-labelledby="titulo-panel">
+            <p class="panel-eyebrow">Panificadora Pacho's</p>
+            <h1 id="titulo-panel">Disponibilidad de productos</h1>
+            <p class="panel-description">Activa o pausa los productos que aparecen en el catálogo.</p>
+        </section>
+
+        <p class="panel-status" id="estado-panel" role="status" aria-live="polite">
+            Cargando productos…
+        </p>
+        <section class="product-list" id="lista-productos" aria-label="Productos"></section>
+    </main>
+</body>
+</html>

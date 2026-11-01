@@ -1,0 +1,123 @@
+/* Importa las fuentes que ya estamos usando para consistencia */
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+
+:root {
+    --color-naranja: #ff7417;
+    --color-naranja-oscuro: #e85f08;
+    --color-crema: #fffaf1;
+    --color-blanco: #ffffff;
+    --color-texto: #17120f;
+    --color-texto-suave: #625b55;
+    --color-precio: #19772a;
+    --color-borde: #eadfd2;
+    --sombra-tarjeta: 0 16px 30px rgb(40 27 17 / 15%);
+}
+
+body {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.main-content {
+    max-width: 1000px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sub-header {
+    background: var(--color-naranja);
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+    height: auto;
+    max-height: 500px;
+    margin: auto;
+    padding: 0;
+    border-radius: 0 0 50px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.sub-header-text {
+    color: var(--color-blanco);
+    font-size: 2rem;
+}
+
+.contenido-card {
+    background: var(--color-blanco);
+    color: var(--color-texto);
+    width: 90%;
+    max-width: 700px;
+    padding: 40px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    box-shadow: var(--sombra-tarjeta);
+}
+
+.contenido-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.contenido-card h3 {
+    font-size: 1.5rem;
+}
+
+.contenido-card p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+
+.main-footer {
+    width: 100%;
+    padding: 20px 10px;
+    background: var(--color-crema);
+    color: var(--color-texto);
+    border-top: 2px solid var(--color-naranja-oscuro);
+    text-align: center;
+}
+
+.footer-content h2 {
+    margin: 4px 0 12px;
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+.footer-content p {
+    margin: 9px 0;
+}
+
+.footer-etiqueta,
+.footer-copy {
+    color: var(--color-texto);
+    font-size: 0.9rem;
+}
+
+.footer-lema {
+    font-family: "Dancing Script", cursive;
+    font-size: 1.6rem;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        font-size: 16px;
+    }
+}

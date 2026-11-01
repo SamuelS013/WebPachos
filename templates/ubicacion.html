@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubícanos - Panificadora Pacho's</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="../css/icon/icono-pachos.png" type="image/x-icon">
+    <!-- Enlace al CSS principal para reutilizar estilos del header y footer -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Enlace al nuevo CSS específico para la página de ubicaciones -->
+    <link rel="stylesheet" href="../css/ubicacion.css">
+</head>
+<body>
+    <header class="main-header">
+        <a class="brand-logo" href="../index.html" data-vista="inicio" aria-label="Panificadora Pacho's, inicio">
+            <img src="../css/img/logo-pachos.png" alt="Panificadora Pacho's">
+        </a>
+        <button class="boton-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-container" id="menu-principal" aria-label="Navegación principal">
+            <a href="../index.html" data-vista="inicio">Inicio</a>
+            <a href="ubicacion.html" data-vista="ubicacion">Ubicación</a>
+            <a href="emprende.html" data-vista="emprende">Emprende</a>
+            <a href="#contactos" data-abrir-contactos aria-haspopup="dialog">Contáctanos</a>
+            <!--
+            <a href="sobre-nosotros.html" data-vista="sobre-nosotros">Sobre nosotros</a>
+            -->
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <header class="sub-header">
+            <h2 class="sub-header-text">Ubícanos cerca de tí</h2>
+        </header>
+
+        <section class="ubicacion">
+            <div class="direccion-card">
+                <address class="direccion">
+                    <h3 class="direccion-title">DIRECCIÓN</h3>
+                    <div class="horario-container">
+                        <i class="fa-regular fa-clock" style="color: #625b55;"></i>
+                        <p class="horario">Lun - Dom: 8:00 a.m. - 9:00 p.m. </p>
+                    </div>
+                    <p class="direccion-text">Sector "El Tendal", Pampán <br><span>Municipio Pampán, Edo. Trujillo</span></p>
+                    
+                </address>
+                
+                <div class="mapa-contenedor">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d937.8008022738142!2d-70.47436700000003!3d9.448680000000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwMjYnNTUuMyJOIDcwwrAyOCcyNy43Ilc!5e1!3m2!1ses-419!2sve!4v1791486157809!5m2!1ses-419!2sve"
+                        width="450"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        title="Mapa de Ubicación">
+                    </iframe>
+                </div>
+
+                <a href="https://maps.app.goo.gl/N76AVsa2VAj8Xosm9">
+                    <button class="boton-maps">Abrir en Maps</button>
+                </a>
+            </div>
+            
+        </section>
+
+    </main>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p class="footer-lema">"Del horno a tu corazón"</p>
+            <p class="footer-copy">&copy; 2026 Panificadora Pachos.</p>
+        </div>
+    </footer>
+    <dialog class="contactos-dialog" id="dialogo-contactos" aria-labelledby="titulo-contactos">
+        <button class="contactos-dialog-cerrar" type="button" data-cerrar-contactos aria-label="Cerrar contactos">&times;</button>
+        <h2 id="titulo-contactos">Nuestros contactos:</h2>
+        <button class="modal-contacto-boton" type="button">
+            <span>Principal</span>
+            <p><a href="https://wa.me/584261351097" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> +58 426-1351097</a>
+            </p>
+        </button>
+        <button class="modal-contacto-boton" type="button">
+            <p><a href="https://wa.me/584140770512" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> +58 414-0770512</a>
+            </p>
+        </button>
+    </dialog>
+    <script type="module" src="../js/main.js"></script>
+</body>
+</html>
