@@ -1,232 +1,240 @@
-import { inicializarProductos } from "./productos.js";
+import { productos } from "./modules/productos.js";
+import { escucharProductos } from "./modules/servicio-lectura.js";
+import { agregarProductos } from "./modules/servicio-escritura.js";
+import { sincronizarProductosIniciales } from "./modules/servicio-escritura.js";
+import { actualizarLikesProducto } from "./modules/servicio-likes.js";
+import { obtenerDolarBCV } from "./modules/dolarService.js";
+import { burst } from 'https://esm.sh/burst-particles';
 
-const rutas = {
-    inicio: null,
-    ubicacion: { archivo: "ubicacion.html", estilos: "css/ubicacion.css" },
-    emprende: { archivo: "emprende.html", estilos: "css/emprende.css" },
-    "sobre-nosotros": { archivo: "sobre-nosotros.html", estilos: "css/sobre-nosotros.css" }
-};
+const gridProductos = document.querySelector("#productos-grid");
+const plantillaProducto = document.querySelector("#plantilla-producto");
+const filtrosCategoria = document.querySelectorAll("[data-category]");
+const estadoProductos = document.querySelector("#estado-productos");
+const estadoTasa = document.querySelector("#estado-tasa");
 
-function configurarContactos() {
-    const dialogo = document.querySelector("#dialogo-contactos");
-    if (!(dialogo instanceof HTMLDialogElement)) {
-        throw new Error("La página debe incluir el diálogo de contactos.");
-    }
-
-    document.addEventListener("click", (evento) => {
-        const elemento = evento.target;
-        if (!(elemento instanceof Element)) return;
-
-        if (elemento.closest("[data-abrir-contactos]")) {
-            evento.preventDefault();
-            if (!dialogo.open) dialogo.showModal();
-        } else if (elemento.closest("[data-cerrar-contactos]")) {
-            dialogo.close();
-        } else if (elemento === dialogo) {
-            dialogo.close();
-        }
-    });
+if (
+    !(gridProductos instanceof HTMLElement) ||
+    !(plantillaProducto instanceof HTMLTemplateElement) ||
+    !(estadoProductos instanceof HTMLElement) ||
+    !(estadoTasa instanceof HTMLElement)
+) {
+    throw new Error("No se pudo iniciar el catálogo. Revisa tu conexión e intenta de nuevo");
 }
 
-function configurarMenu() {
-    const boton = document.querySelector(".boton-menu");
-    const menu = document.querySelector("#menu-principal");
-    const main = document.querySelector("main");
-    if (!boton || !menu || !main) return () => {};
+const formatoPrecio = new Intl.NumberFormat("es-VE", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+});
+const formatoPrecioBolivares = new Intl.NumberFormat("es-VE", {
+    maximumFractionDigits: 0
+});
+const productosLocalesPorId = new Map(productos.map((producto) => [producto.id, producto]));
+const FAVORITOS_STORAGE_KEY = "panificadora-pachos:productos-favoritos";
+const favoritosLocales = cargarFavoritosLocales();
+let productosCatalogo = productos;
+let categoriaActiva = "todos";
+let tasaDolar = null;
 
-    const actualizarAltura = () => {
-        menu.style.setProperty("--altura-main", `${main.getBoundingClientRect().height}px`);
-    };
-    const actualizarAccesibilidad = () => {
-        const abierto = boton.getAttribute("aria-expanded") === "true";
-        const oculto = window.matchMedia("(max-width: 700px)").matches && !abierto;
-        menu.setAttribute("aria-hidden", String(oculto));
-        menu.inert = oculto;
-    };
-    const cerrarMenu = () => {
-        boton.setAttribute("aria-expanded", "false");
-        boton.setAttribute("aria-label", "Abrir menú");
-        menu.classList.remove("menu-abierto");
-        actualizarAccesibilidad();
-    };
-
-    boton.addEventListener("click", () => {
-        const abierto = boton.getAttribute("aria-expanded") !== "true";
-        boton.setAttribute("aria-expanded", String(abierto));
-        boton.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
-        menu.classList.toggle("menu-abierto", abierto);
-        actualizarAccesibilidad();
-    });
-
-    menu.addEventListener("click", (evento) => {
-        if (evento.target.closest("a")) cerrarMenu();
-    });
-
-    document.addEventListener("click", (evento) => {
-        if (!menu.contains(evento.target) && !boton.contains(evento.target)) cerrarMenu();
-    });
-
-    document.addEventListener("keydown", (evento) => {
-        if (evento.key === "Escape") cerrarMenu();
-    });
-
-    window.addEventListener("resize", () => {
-        actualizarAltura();
-        actualizarAccesibilidad();
-    });
-    new ResizeObserver(actualizarAltura).observe(main);
-    actualizarAltura();
-    actualizarAccesibilidad();
-
-    return cerrarMenu;
+function cargarFavoritosLocales() {
+    try {
+        const favoritosGuardados = JSON.parse(localStorage.getItem(FAVORITOS_STORAGE_KEY) || "[]");
+        return new Set(Array.isArray(favoritosGuardados) ? favoritosGuardados : []);
+    } catch (error) {
+        console.error("No se pudieron leer los favoritos guardados en este navegador:", error);
+        return new Set();
+    }
 }
 
-function configurarVistas(cerrarMenu) {
-    const contenedor = document.querySelector("#contenido-vista");
-    const enlacesVista = document.querySelectorAll("[data-vista]");
-    if (!contenedor) {
-        inicializarProductos();
-        return;
+function guardarFavoritosLocales() {
+    try {
+        localStorage.setItem(FAVORITOS_STORAGE_KEY, JSON.stringify([...favoritosLocales]));
+    } catch (error) {
+        console.error("No se pudieron guardar los favoritos en este navegador:", error);
+        estadoProductos.textContent = "Like guardado en Firebase; no se pudo recordar tu selección en este navegador.";
     }
+}
 
-    const pieInicio = document.querySelector("footer");
-    if (!pieInicio) {
-        throw new Error("La página de inicio debe incluir un elemento footer.");
-    }
+function redondearBolivaresADecenaSuperior(monto) {
+    return Math.ceil(monto / 10) * 10;
+}
 
-    const pieInicioOriginal = pieInicio.cloneNode(true);
-    let pieActual = pieInicio;
-    const contenidoInicio = contenedor.innerHTML;
-    let vistaActual = "inicio";
-    let hojaDeEstilos = null;
-    const tituloInicio = document.title;
-    let solicitudActual = 0;
+function crearTarjeta(producto) {
+    const tarjeta = plantillaProducto.content.firstElementChild.cloneNode(true);
+    const imagen = tarjeta.querySelector(".producto-imagen");
+    const marcadorImagen = tarjeta.querySelector(".producto-imagen-placeholder");
+    const botonLike = tarjeta.querySelector(".boton-like");
+    const iconoLike = botonLike.querySelector("i");
+    const contadorLikes = tarjeta.querySelector(".contador-likes");
+    const precioBs = tarjeta.querySelector(".producto-precio-bs");
+    const precioReferencia = tarjeta.querySelector(".producto-precio span");
+    const favorito = favoritosLocales.has(producto.id);
 
-    const marcarVistaActiva = (vista) => {
-        enlacesVista.forEach((enlace) => {
-            if (enlace.dataset.vista === vista) {
-                enlace.setAttribute("aria-current", "page");
-            } else {
-                enlace.removeAttribute("aria-current");
-            }
-        });
-    };
+    tarjeta.dataset.id = producto.id;
+    tarjeta.dataset.category = producto.categoria;
+    tarjeta.querySelector(".producto-titulo").textContent = producto.nombre;
+    tarjeta.querySelector(".producto-descripcion").textContent = producto.descripcion;
+    tarjeta.querySelector(".producto-precio").firstChild.textContent = "Ref: ";
+    precioReferencia.textContent = `$ ${formatoPrecio.format(producto.precio)}`;
+    precioBs.textContent = tasaDolar
+        ? `Bs. ${formatoPrecioBolivares.format(redondearBolivaresADecenaSuperior(producto.precio * tasaDolar))}`
+        : "Consultando tasa...";
+    contadorLikes.textContent = String(producto.likes);
+    botonLike.setAttribute("aria-pressed", String(favorito));
+    botonLike.setAttribute("aria-label", favorito
+        ? `Quitar ${producto.nombre} de favoritos`
+        : `Agregar ${producto.nombre} a favoritos`);
+    iconoLike.classList.toggle("fa-solid", favorito);
+    iconoLike.classList.toggle("fa-regular", !favorito);
 
-    const cargarEstilos = (ruta) => new Promise((resolve, reject) => {
-        if (hojaDeEstilos?.getAttribute("href") === ruta.estilos) {
-            resolve(hojaDeEstilos);
-            return;
-        }
-
-        const nuevaHoja = document.createElement("link");
-        nuevaHoja.rel = "stylesheet";
-        nuevaHoja.href = ruta.estilos;
-        nuevaHoja.dataset.vistaEstilos = "";
-        nuevaHoja.onload = () => resolve(nuevaHoja);
-        nuevaHoja.onerror = () => {
-            nuevaHoja.remove();
-            reject(new Error(`No se pudieron cargar los estilos de la vista ${ruta.estilos}.`));
-        };
-        document.head.append(nuevaHoja);
-    });
-
-    const mostrarError = (error) => {
-        contenedor.querySelector(".error-vista")?.remove();
-        const aviso = document.createElement("p");
-        aviso.className = "error-vista";
-        aviso.setAttribute("role", "alert");
-        aviso.textContent = `No se pudo abrir esta sección. ${error.message}`;
-        contenedor.prepend(aviso);
-    };
-
-    const irA = async (vista, { actualizarHistorial = true, desplazarse = true } = {}) => {
-        if (!Object.hasOwn(rutas, vista)) return;
-
-        const solicitud = ++solicitudActual;
-        cerrarMenu();
-        contenedor.querySelector(".error-vista")?.remove();
-
-        try {
-            let nuevoContenido = contenidoInicio;
-            let nuevoTitulo = tituloInicio;
-            let nuevaHoja = null;
-            let nuevoPie = pieInicioOriginal.cloneNode(true);
-
-            if (rutas[vista]) {
-                const respuesta = await fetch(rutas[vista].archivo);
-                if (!respuesta.ok) {
-                    throw new Error(`El servidor respondió con el estado ${respuesta.status}.`);
-                }
-
-                const documento = new DOMParser().parseFromString(await respuesta.text(), "text/html");
-                if (solicitud !== solicitudActual) return;
-                const mainFuente = documento.querySelector("main");
-                if (!mainFuente) {
-                    throw new Error(`El archivo ${rutas[vista].archivo} no contiene un elemento main.`);
-                }
-                const pieFuente = documento.querySelector("footer");
-                if (!pieFuente) {
-                    throw new Error(`El archivo ${rutas[vista].archivo} no contiene un elemento footer.`);
-                }
-
-                nuevaHoja = await cargarEstilos(rutas[vista]);
-                if (solicitud !== solicitudActual) {
-                    if (nuevaHoja !== hojaDeEstilos) nuevaHoja.remove();
-                    return;
-                }
-                nuevoContenido = mainFuente.innerHTML;
-                nuevoTitulo = documento.title || tituloInicio;
-                nuevoPie = pieFuente.cloneNode(true);
-            }
-
-            contenedor.innerHTML = nuevoContenido;
-            pieActual.replaceWith(nuevoPie);
-            pieActual = nuevoPie;
-            contenedor.dataset.vistaActual = vista;
-            if (hojaDeEstilos && hojaDeEstilos !== nuevaHoja) hojaDeEstilos.remove();
-            hojaDeEstilos = nuevaHoja;
-            vistaActual = vista;
-            document.title = nuevoTitulo;
-            marcarVistaActiva(vista);
-
-            if (vista === "inicio" || vista === "catalogo") inicializarProductos();
-            if (actualizarHistorial) {
-                history.pushState({ vista }, "", `#vista-${vista}`);
-            }
-            if (desplazarse) window.scrollTo({ top: 0, behavior: "smooth" });
-        } catch (error) {
-            if (solicitud !== solicitudActual) return;
-            mostrarError(error);
-            const hashAnterior = vistaActual === "inicio" ? "" : `#vista-${vistaActual}`;
-            history.replaceState({ vista: vistaActual }, "", hashAnterior);
-        }
-    };
-
-    document.addEventListener("click", (evento) => {
-        const enlace = evento.target.closest("a[data-vista]");
-        if (!enlace || !Object.hasOwn(rutas, enlace.dataset.vista)) return;
-
-        evento.preventDefault();
-        void irA(enlace.dataset.vista);
-    });
-
-    window.addEventListener("popstate", () => {
-        const vista = window.location.hash.replace("#vista-", "");
-        if (Object.hasOwn(rutas, vista)) {
-            void irA(vista, { actualizarHistorial: false, desplazarse: false });
-        } else {
-            void irA("inicio", { actualizarHistorial: false, desplazarse: false });
-        }
-    });
-
-    const vistaInicial = window.location.hash.replace("#vista-", "");
-    if (Object.hasOwn(rutas, vistaInicial) && vistaInicial !== "inicio") {
-        void irA(vistaInicial, { actualizarHistorial: false, desplazarse: false });
+    if (producto.imagen) {
+        imagen.src = producto.imagen;
+        imagen.alt = producto.nombre;
+        imagen.addEventListener("error", () => {
+            imagen.hidden = true;
+            marcadorImagen.hidden = false;
+        }, { once: true });
+        marcadorImagen.hidden = true;
     } else {
-        marcarVistaActiva("inicio");
-        inicializarProductos();
+        imagen.hidden = true;
+        marcadorImagen.hidden = false;
+    }
+
+    botonLike.addEventListener("click", async (event) => {
+        const marcado = !favoritosLocales.has(producto.id);
+        
+        if (marcado){
+            burst(event, {
+                "count": 50,
+                "speedMin": 4.8,
+                "speedMax": 10,
+                "gravity": 0.18,
+                "shapes": [],
+                "colors": ["#fbbf24"],
+                "chars": ["🥐", "🥨", "🍩", "🍪", "🍞", "⭐", "🧡"],
+                "spread": 5,
+                "drag": 0.98,
+                "sizeMin": 10,
+                "sizeMax": 18,
+                "lifeMin": 100,
+                "lifeMax": 200,
+                "rotates": true,
+                "fadeOut": true,
+                "drift": 0,
+                "riseInit": 0
+            });
+        };
+        
+        botonLike.disabled = true;
+        
+        try {
+            const likesActualizados = await actualizarLikesProducto(producto.id, marcado ? 1 : -1);
+            if (marcado) {
+                favoritosLocales.add(producto.id);
+            } else {
+                favoritosLocales.delete(producto.id);
+            }
+            guardarFavoritosLocales();
+
+
+            productosCatalogo = productosCatalogo.map((item) =>
+                item.id === producto.id ? { ...item, likes: likesActualizados } : item
+            );
+            mostrarProductos();
+        } catch (error) {
+            console.error(`No se pudo actualizar el like de "${producto.nombre}" en Firestore:`, error);
+            estadoProductos.textContent = `No se pudo guardar el like de ${producto.nombre}. Inténtalo de nuevo.`;
+            botonLike.disabled = false;
+        }
+    });
+
+    return tarjeta;
+}
+
+function mostrarProductos() {
+    const fragmento = document.createDocumentFragment();
+    const productosVisibles = productosCatalogo.filter((producto) =>
+        producto.disponible && (categoriaActiva === "todos" || producto.categoria === categoriaActiva)
+    );
+
+    productosVisibles.forEach((producto) => fragmento.append(crearTarjeta(producto)));
+    gridProductos.replaceChildren(fragmento);
+}
+
+function normalizarProducto(producto) {
+    const base = productosLocalesPorId.get(producto.id);
+    const precio = Number(producto.precio ?? base?.precio ?? 0);
+    const precioBs = Number(producto.precioBs ?? base?.precioBs ?? 0);
+    const imagenRemota = String(producto.imagen ?? "").trim();
+
+    return {
+        id: producto.id,
+        nombre: String(producto.nombre ?? base?.nombre ?? "Producto"),
+        descripcion: String(producto.descripcion ?? base?.descripcion ?? ""),
+        categoria: producto.categoria === "panes" || producto.categoria === "reposteria"
+            ? producto.categoria
+            : base?.categoria ?? "reposteria",
+        precio: Number.isFinite(precio) && precio >= 0 ? precio : 0,
+        precioBs: Number.isFinite(precioBs) && precioBs >= 0 ? precioBs : 0,
+        imagen: imagenRemota && !imagenRemota.startsWith("ruta-a/")
+            ? imagenRemota
+            : base?.imagen ?? "",
+        likes: Math.max(0, Number(producto.likes ?? base?.likes ?? 0) || 0),
+        disponible: producto.disponible ?? base?.disponible ?? true
+    };
+}
+
+function mostrarErrorFirebase(error) {
+    console.error("No se pudo sincronizar el catálogo. Revisa tu conexión e intenta de nuevo", error);
+    estadoProductos.textContent = "No se pudo conectar con Firebase. Se muestra el catálogo local.";
+}
+
+function iniciarEscuchaProductos() {
+    try {
+        escucharProductos((productosRemotos) => {
+            if (productosRemotos.length === 0) {
+                productosCatalogo = productos;
+                mostrarProductos();
+                return;
+            }
+
+            productosCatalogo = productosRemotos.map(normalizarProducto);
+            mostrarProductos();
+        }, mostrarErrorFirebase);
+    } catch (error) {
+        mostrarErrorFirebase(error);
+    }
+
+    sincronizarProductosIniciales(productos).catch((error) => {
+        console.error("No se pudieron guardar los productos locales faltantes en Firebase:", error);
+        estadoProductos.textContent = "Catálogo cargado; no se pudieron sincronizar algunos productos locales con Firebase.";
+    });
+}
+
+async function actualizarTasaDolar() {
+    try {
+        tasaDolar = await obtenerDolarBCV();
+        mostrarProductos();
+    } catch (error) {
+        console.error("No se pudo actualizar la tasa del dólar:", error);
+        estadoTasa.textContent = tasaDolar
+            ? `No se pudo actualizar la tasa; se conserva el último valor: Bs. ${formatoPrecio.format(tasaDolar)} por dólar.`
+            : "No se pudo obtener la tasa del dólar; precios en bolívares no disponibles.";
     }
 }
 
-configurarContactos();
-configurarVistas(configurarMenu());
+filtrosCategoria.forEach((filtro) => {
+    filtro.addEventListener("click", () => {
+        categoriaActiva = filtro.dataset.category;
+        filtrosCategoria.forEach((item) => {
+            const activo = item === filtro;
+            item.classList.toggle("activo", activo);
+            item.setAttribute("aria-pressed", String(activo));
+        });
+        mostrarProductos();
+    });
+});
+
+mostrarProductos();
+iniciarEscuchaProductos();
+actualizarTasaDolar();
+window.setInterval(actualizarTasaDolar, 15 * 60 * 1000);

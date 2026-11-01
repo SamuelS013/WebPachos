@@ -30,19 +30,6 @@ body {
     background-color: var(--color-blanco);
 }
 
-.main-header {
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: auto;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: var(--color-blanco);
-    color: var(--color-texto);
-    box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
-}
-
 .main-content {
     display: flex;
     flex-direction: column;
@@ -75,10 +62,14 @@ h2 {
     color: inherit;
 }
 
-.pagina-inicio .main-header {
+/* ===== HEADER COMPARTIDO (index + templates) =====
+   Fuente unica del header. Todas las paginas enlazan este archivo,
+   asi que no se redefine en ubicacion.css, emprende.css ni sobre-nosotros.css. */
+.main-header {
     position: relative;
     z-index: 5;
     display: flex;
+    width: 100%;
     min-height: 76px;
     align-items: center;
     justify-content: space-between;
@@ -87,26 +78,26 @@ h2 {
     box-shadow: 0 4px 18px rgb(36 27 19 / 12%);
 }
 
-.pagina-inicio .brand-logo {
+.brand-logo {
     display: inline-flex;
     align-items: center;
     line-height: 0;
 }
 
-.pagina-inicio .brand-logo img {
+.brand-logo img {
     display: block;
     width: clamp(112px, 15vw, 164px);
     max-height: 54px;
     object-fit: contain;
 }
 
-.pagina-inicio .nav-container {
+.nav-container {
     display: flex;
     align-items: center;
     gap: clamp(20px, 3.5vw, 52px);
 }
 
-.pagina-inicio .nav-container a {
+.nav-container a {
     padding: 10px 0;
     color: var(--color-texto);
     font-size: 1rem;
@@ -114,17 +105,17 @@ h2 {
     transition: color 180ms ease;
 }
 
-.pagina-inicio .nav-container a:focus-visible {
+.nav-container a:focus-visible {
     color: var(--color-naranja-oscuro);
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .pagina-inicio .nav-container a:hover {
+    .nav-container a:hover {
         color: var(--color-naranja-oscuro);
     }
 }
 
-.pagina-inicio .boton-menu {
+.boton-menu {
     display: none;
     width: 42px;
     height: 42px;
@@ -138,7 +129,7 @@ h2 {
     transition: transform 120ms ease;
 }
 
-.pagina-inicio .boton-menu span {
+.boton-menu span {
     display: block;
     width: 25px;
     height: 2px;
@@ -248,6 +239,18 @@ h2 {
     border-color: var(--color-naranja);
 }
 
+.pagina-inicio .estado-productos,
+.pagina-inicio .estado-tasa {
+    margin: -16px 0 18px;
+    color: var(--color-texto-suave);
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+.pagina-inicio .estado-tasa {
+    margin-top: -12px;
+}
+
 @media (hover: hover) and (pointer: fine) {
     .pagina-inicio .categories-item:hover .categories-item-img {
         transform: translateY(-2px);
@@ -274,7 +277,8 @@ h2 {
     transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-.pagina-inicio .producto-imagen {
+.pagina-inicio .producto-imagen-contenedor {
+    position: relative;
     width: clamp(96px, 13vw, 150px);
     height: clamp(96px, 13vw, 150px);
     flex: 0 0 auto;
@@ -283,7 +287,31 @@ h2 {
     border: 1px solid var(--color-borde);
     border-radius: 50%;
     background: var(--color-crema);
+}
+
+.pagina-inicio .producto-imagen {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
     object-fit: cover;
+}
+
+.pagina-inicio .producto-imagen-placeholder {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 12px;
+    border-radius: inherit;
+    color: var(--color-texto-suave);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.pagina-inicio .producto-imagen-placeholder[hidden],
+.pagina-inicio .producto-imagen[hidden] {
+    display: none;
 }
 
 .pagina-inicio .producto-cabecera {
@@ -445,7 +473,7 @@ h2 {
 }
 
 @media (hover: none) {
-    .pagina-inicio .nav-container a:active {
+    .nav-container a:active {
         color: #4a2008;
         transition: color 120ms ease;
     }
@@ -461,33 +489,34 @@ h2 {
         box-shadow: 0 10px 22px rgb(40 27 17 / 18%);
     }
 
-    .pagina-inicio .boton-menu:active,
+    .boton-menu:active,
     .pagina-inicio .boton-like:active {
         transform: scale(0.92);
     }
 }
 
-.pagina-inicio :focus-visible {
+.pagina-inicio :focus-visible,
+.main-header :focus-visible {
     outline: 3px solid var(--color-naranja);
     outline-offset: 3px;
 }
 
 @media (max-width: 700px) {
-    .pagina-inicio .main-header {
+    .main-header {
         min-height: 66px;
         padding: 8px 18px;
     }
 
-    .pagina-inicio .brand-logo img {
+    .brand-logo img {
         width: 112px;
         max-height: 46px;
     }
 
-    .pagina-inicio .boton-menu {
+    .boton-menu {
         display: flex;
     }
 
-    .pagina-inicio .nav-container {
+    .nav-container {
         position: absolute;
         top: 100%;
         right: 0;
@@ -505,32 +534,32 @@ h2 {
         visibility: hidden;
     }
 
-    .pagina-inicio .nav-container.menu-abierto {
+    .nav-container.menu-abierto {
         transform: translateX(0);
         visibility: visible;
         transition-delay: 0s;
     }
 
-    .pagina-inicio .nav-container a {
+    .nav-container a {
         padding: 15px 6px;
         border-bottom: 1px solid rgb(255 255 255 / 62%);
         color: var(--color-blanco);
         font-size: 1rem;
     }
 
-    .pagina-inicio .nav-container a:focus-visible {
+    .nav-container a:focus-visible {
         color: #4a2008;
     }
 
-    .pagina-inicio .boton-menu[aria-expanded="true"] span:first-child {
+    .boton-menu[aria-expanded="true"] span:first-child {
         transform: translateY(7px) rotate(45deg);
     }
 
-    .pagina-inicio .boton-menu[aria-expanded="true"] span:nth-child(2) {
+    .boton-menu[aria-expanded="true"] span:nth-child(2) {
         opacity: 0;
     }
 
-    .pagina-inicio .boton-menu[aria-expanded="true"] span:last-child {
+    .boton-menu[aria-expanded="true"] span:last-child {
         transform: translateY(-7px) rotate(-45deg);
     }
 
@@ -587,7 +616,7 @@ h2 {
         padding: 0 12px 13px;
     }
 
-    .pagina-inicio .producto-imagen {
+    .pagina-inicio .producto-imagen-contenedor {
         width: clamp(74px, 24vw, 112px);
         height: clamp(74px, 24vw, 112px);
         margin-top: -19px;
@@ -638,7 +667,10 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
     .pagina-inicio *,
     .pagina-inicio *::before,
-    .pagina-inicio *::after {
+    .pagina-inicio *::after,
+    .main-header *,
+    .main-header *::before,
+    .main-header *::after {
         scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
     }
