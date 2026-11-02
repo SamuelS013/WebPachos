@@ -2,13 +2,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyC75jK43Kh4ptC0CHb7Uzfk0wIEvrpz6us",
-    authDomain: "panificadora-pachos-75b2a.firebaseapp.com",
-    projectId: "panificadora-pachos-75b2a",
-    storageBucket: "panificadora-pachos-75b2a.firebasestorage.app",
-    messagingSenderId: "582397152337",
-    appId: "1:582397152337:web:eb3b667328a3f687913c70"
+  apiKey: "AIzaSyCuAxMgfYcmgVUTXgvE8mWm2FeEGaVkIFA",
+  authDomain: "pachos-panificadora.firebaseapp.com",
+  projectId: "pachos-panificadora",
+  storageBucket: "pachos-panificadora.firebasestorage.app",
+  messagingSenderId: "1090965550427",
+  appId: "1:1090965550427:web:24832e07c73dcddb3a567e"
 };
 
 const app = initializeApp(firebaseConfig);
