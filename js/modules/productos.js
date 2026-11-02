@@ -88,7 +88,7 @@ export const productos = [
         disponible: true
     },
     {
-        id: "008",
+        id: "009",
         nombre: "Paledonia",
         descripcion: "Paledonia tradicional.",
         categoria: "reposteria",
@@ -96,6 +96,17 @@ export const productos = [
         precioBs: 0,
         imagen: "css/img/paledonias.jpeg",
         likes: 0,
+        disponible: true
+    },
+    {
+        id: "010",
+        nombre: "Galletas",
+        descripcion: "Galletas empaquetadas de sabores variados.",
+        categoria: "reposteria",
+        precio: 0.40,
+        precioBs: 0,
+        imagen: "css/img/palmeritas.jpeg",
+        likes: 9,
         disponible: true
     }
 ];

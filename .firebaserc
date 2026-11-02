@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "pachos-panificadora"
-  }
+  },
+  "targets": {
+    "pachos-panificadora": {
+      "hosting": {
+        "panificadora-pachos-web": [
+          "panificadora-pachos"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

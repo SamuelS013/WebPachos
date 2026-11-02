@@ -1,11 +1,13 @@
 {
-  "hosting": {
-    "public": ".",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**",
-      "**resources/**"
-    ]
-  }
+  "hosting": [
+    {
+      "public": ".",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "**resources/**"]
+    },
+    {
+      "target": "panificadora-pachos-web",
+      "public": ".",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**", "**resources/**"]
+    }
+  ]
 }
