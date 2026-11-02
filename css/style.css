@@ -5,6 +5,10 @@ html {
     overflow-x: clip;
 }
 
+html {
+    overflow-x: clip;
+}
+
 :root {
     --color-naranja: #ff7417;
     --color-naranja-oscuro: #e85f08;
@@ -456,6 +460,9 @@ h2 {
     font-size: 1.2rem;
     font-weight: 400;
     display: flex;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     flex-direction: column;
     justify-content: center;
     cursor: pointer;
@@ -463,6 +470,11 @@ h2 {
 }
 
 .modal-contacto-boton a {
+    display: inline-flex;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     color: var(--color-texto);
     text-decoration: none;
     overflow-wrap: anywhere;
@@ -528,7 +540,9 @@ h2 {
     }
 
     .contactos-dialog h2 {
-        margin: 18px 28px 4px;
+        box-sizing: border-box;
+        margin: 18px 0 4px;
+        padding: 0 32px;
         font-size: clamp(1.15rem, 5vw, 1.5rem);
     }
 
@@ -620,8 +634,8 @@ h2 {
     }
 
     .nav-container {
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: var(--menu-top, 66px);
         right: 0;
         display: flex;
         width: min(82vw, 220px);

@@ -11,13 +11,16 @@ const botonMenu = document.querySelector(".boton-menu");
 const menuPrincipal = document.querySelector("#menu-principal");
 
 if (botonMenu instanceof HTMLButtonElement && menuPrincipal instanceof HTMLElement) {
+    const encabezado = document.querySelector(".main-header");
     const piePagina = document.querySelector(".main-footer");
     const actualizarAlturaMenu = () => {
-        if (!(piePagina instanceof HTMLElement)) {
+        if (!(encabezado instanceof HTMLElement) || !(piePagina instanceof HTMLElement)) {
             return;
         }
 
-        const altura = piePagina.getBoundingClientRect().top - menuPrincipal.getBoundingClientRect().top;
+        const top = encabezado.getBoundingClientRect().bottom;
+        const altura = piePagina.getBoundingClientRect().top - top;
+        menuPrincipal.style.setProperty("--menu-top", `${top}px`);
         menuPrincipal.style.setProperty("--altura-main", `${Math.max(0, altura)}px`);
     };
     const cerrarMenu = () => {
@@ -28,10 +31,12 @@ if (botonMenu instanceof HTMLButtonElement && menuPrincipal instanceof HTMLEleme
 
     actualizarAlturaMenu();
     window.addEventListener("resize", actualizarAlturaMenu);
+    window.addEventListener("scroll", actualizarAlturaMenu, { passive: true });
 
-    if (piePagina instanceof HTMLElement && "ResizeObserver" in window) {
+    if (encabezado instanceof HTMLElement && piePagina instanceof HTMLElement && "ResizeObserver" in window) {
         const observadorAlturaMenu = new ResizeObserver(actualizarAlturaMenu);
         observadorAlturaMenu.observe(document.body);
+        observadorAlturaMenu.observe(encabezado);
         observadorAlturaMenu.observe(piePagina);
     }
 
