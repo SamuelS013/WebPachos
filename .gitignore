@@ -3,5 +3,5 @@ node_modules/
 firebase-nuevo.txt
 firebase.txt
 firebase.json
-.firebase/
-.dashboard/
+firebase/
+dashboard/
