@@ -23,8 +23,8 @@ export const productos = [
     },
     {
         id: "003",
-        nombre: "Pan salado",
-        descripcion: "Pan salado dorado, ideal para cualqier ocasión.",
+        nombre: "Pan salado (Combo)",
+        descripcion: "Combo de pan salado de cinco unidades, ideal para cualquier ocasión.",
         categoria: "panes",
         precio: 1.6,
         precioBs: 0,
